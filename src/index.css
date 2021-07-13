@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+}
+
+.App header .flex-wrap {
+  text-align: center;
+}
+
+.error-handling {
+  text-align: center;
+}
+
+.feed {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.feed .post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid grey;
+  min-height: 100px;
+}
+
+.feed .post .img-wrapper {
+  width: 100px;
+}
+
+.feed .post .img-wrapper img {
+  width: inherit;
+  border-radius: 3px;
+}
+
+.feed .post .content-wrapper h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.feed .post .content-wrapper p {
+  margin: 0px;
+}
+
+.loading {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: black;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+.ver-mais {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+/*# sourceMappingURL=index.css.map */
