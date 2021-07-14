@@ -1,12 +1,12 @@
 
-const Header = ({setFeed}) => {
+const Header = ({feed, setFeed}) => {
 
     return ( 
         <header>
             <div className="flex-wrap">
-                <button onClick={(() => setFeed('hot'))}>Hot</button>
-                <button onClick={(() => setFeed('new'))}>New</button>
-                <button onClick={(() => setFeed('rising'))}>Rising</button>
+                <button className={feed === 'hot'? 'active' : ''} onClick={(() => setFeed('hot'))}>Hot</button>
+                <button className={feed === 'new'? 'active' : ''} onClick={(() => setFeed('new'))}>New</button>
+                <button className={feed === 'rising'? 'active' : ''} onClick={(() => setFeed('rising'))}>Rising</button>
             </div>
         </header>
     );

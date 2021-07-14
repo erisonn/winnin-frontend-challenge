@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import PostList from "./components/PostList.jsx";
+import LoadingSVG from './svg/loading.svg'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   const [error, setError] = useState(null)
   const [after, setAfter] = useState(null)
   const [feed, setFeed] = useState('hot')
+  const API_URL = `https://www.reddit.com/r/reactjs/${feed}/.json?limit=10`
   const PAGINATED_URL = `https://www.reddit.com/r/reactjs/${feed}/.json?limit=10&after=${after}&count=10`
 
   useEffect(() => {
@@ -16,7 +18,7 @@ function App() {
     setError(null)
     setAfter(null)
 
-    fetchAPI(`https://www.reddit.com/r/reactjs/${feed}/.json?limit=10`)
+    fetchAPI(API_URL)
   },[feed])
 
   const fetchAPI = (url) => {
@@ -43,21 +45,21 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header setFeed={setFeed}/>
-      <>
-      <PostList posts ={posts}/>
-      {after && <button className="ver-mais" onClick={() => fetchAPI(PAGINATED_URL)}>Load more.</button>}
-      {isLoading && <p className="loading">Loading...</p>}
-      </>
+      <div className="App">
+        <Header feed={feed} setFeed={setFeed}/>
+        <>
+          <PostList posts ={posts}/>
+        {after && <button className="ver-mais" onClick={() => fetchAPI(PAGINATED_URL)}>Load more.</button>}
+        {isLoading && <div className="loading"><img src={LoadingSVG}/></div>}
+        </>
 
-      {/*tratamento de erro*/}
-      {error && 
-      <div className="error-handling">
-        <p>Error on loading posts.</p>
-        <button onClick={() => fetchAPI()}>Try Again</button>
-      </div>}
-    </div>
+        {/*tratamento de erro*/}
+        {error && 
+        <div className="error-handling">
+          <p>Error on loading posts.</p>
+          <button onClick={() => fetchAPI(API_URL)}>Try Again</button>
+        </div>}
+      </div>
   );
 }
 
