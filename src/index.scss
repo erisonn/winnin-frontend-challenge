@@ -6,11 +6,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  body, html, #root, .App {
-      height: 100%;
+  body, body > div, html, #root, .App {
+      min-height: 100vh;
       margin: 0;
   }
   .App {
+      background-color: rgba(195, 202, 214, 0.678);
+      background-attachment: fixed;
         header {
             .flex-wrap {
                 text-align: center;
@@ -22,36 +24,68 @@ body {
         text-align: center;
     }
 
-  .feed {
-    max-width: 700px;
+.feed {
+    background-color: white;
+    max-width: 1500px;
     margin: 0 auto;
     .post {
         display: flex;
         align-items: center;
-        border-bottom: 2px solid grey;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.527);
         min-height: 100px;
-        .img-wrapper {
-            width: 100px;
+        .post-img {
+            width: 80px;
+            height: 80px;
+            background-image: url('./img/noimg.png');
+            background-size: contain;
+            background-color: rgba(128, 128, 128, 0.096);
+            border: 1px solid rgba(0, 0, 0, 0.466);
+            margin-right: 10px;
+            margin-left: 10px;
             img {
                 width: inherit;
+                height: inherit;
                 border-radius: 3px;
+                object-fit: cover;
             }   
         }
-        .content-wrapper {
-            h1 {
+        .post-content {
+            .subreddit {
+                span {
+                    font-size: 13px;
+                }
+            }
+            .post-title {
                 margin: 0;
-                font-size: 20px;
+                font-size: 18px;
             }
-            p {
+            .post-author {
                 margin: 0px;
+                color: rgb(167, 167, 167);
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
             }
-        }
+            .post-url {
+                color: #0079D3;
+                text-decoration: none;
+                display: inline-block;
+                white-space: nowrap;
+                max-width: 500px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                position: relative;
+                top: 4px;
+            }
         }
     }
+}
     .loading {
-        position: relative;
+        position: fixed;
         width: fit-content;
         left: 50%;
+        top: 150px;
         transform: translateX(-50%);
         background-color: black;
         color: whitesmoke;

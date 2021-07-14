@@ -9,20 +9,20 @@ function App() {
   const [error, setError] = useState(null)
   const [after, setAfter] = useState(null)
   const [feed, setFeed] = useState('hot')
-  const PAGINATED_URL = `https://www.reddit.com/r/reactjs/${feed}/.json?limit=3&after=${after}&count=10`
+  const PAGINATED_URL = `https://www.reddit.com/r/reactjs/${feed}/.json?limit=10&after=${after}&count=10`
 
   useEffect(() => {
     setIsLoading(true)
     setError(null)
     setAfter(null)
 
-    fetchAPI(`https://www.reddit.com/r/reactjs/${feed}/.json?limit=3`)
+    fetchAPI(`https://www.reddit.com/r/reactjs/${feed}/.json?limit=10`)
   },[feed])
 
   const fetchAPI = (url) => {
+    setIsLoading(true)
     if(error) {
       setError(null)
-      setIsLoading(true)
     }
     fetch(url)
     .then(response => response.json())
