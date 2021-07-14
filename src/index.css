@@ -5,13 +5,13 @@
 }
 
 body, html, #root, .App {
-  min-height: 100vh;
+  min-height: 120vh;
   margin: 0;
 }
 
 .App {
   background-color: rgba(195, 202, 214, 0.678);
-  background-attachment: fixed;
+  padding-bottom: 50px;
 }
 
 .App header {
@@ -38,7 +38,8 @@ body, html, #root, .App {
           justify-content: space-evenly;
 }
 
-.App header .flex-wrap button {
+.App header .flex-wrap a {
+  text-decoration: none;
   color: #838383;
   background-color: transparent;
   font-size: 18px;
@@ -51,7 +52,7 @@ body, html, #root, .App {
   transition: 0.2s ease-in-out;
 }
 
-.App header .flex-wrap button:hover {
+.App header .flex-wrap a:hover {
   background-color: rgba(128, 128, 128, 0.144);
 }
 
@@ -73,6 +74,13 @@ body, html, #root, .App {
   border: 1px solid rgba(128, 128, 128, 0.527);
   border-bottom: 0.5px;
   min-height: 100px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.feed .post:hover {
+  background-color: rgba(128, 128, 128, 0.082);
+  cursor: pointer;
 }
 
 .feed .post .post-img {
@@ -98,6 +106,10 @@ body, html, #root, .App {
   font-size: 13px;
 }
 
+.feed .post .post-content .subreddit span:hover {
+  text-decoration: underline;
+}
+
 .feed .post .post-content .post-title {
   margin: 0;
   font-size: 18px;
@@ -113,12 +125,16 @@ body, html, #root, .App {
   text-decoration: none;
 }
 
+.feed .post .post-content .post-author a:hover {
+  text-decoration: underline;
+}
+
 .feed .post .post-content .post-url {
   color: #0079D3;
   text-decoration: none;
   display: inline-block;
   white-space: nowrap;
-  max-width: 500px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
@@ -128,7 +144,7 @@ body, html, #root, .App {
 .loading {
   position: fixed;
   left: 50%;
-  top: 130px;
+  top: 150px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -141,10 +157,35 @@ body, html, #root, .App {
 }
 
 .ver-mais {
+  height: 50px;
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  text-align: center;
+  border-top: 1px solid rgba(128, 128, 128, 0.527);
+  border: 1px solid rgba(128, 128, 128, 0.527);
+}
+
+.ver-mais button {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #838383;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 15px 7px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.ver-mais button:hover {
+  background-color: rgba(128, 128, 128, 0.144);
 }
 
 .error-handling {

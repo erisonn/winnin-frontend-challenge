@@ -1,13 +1,13 @@
-
-const Header = ({feed, setFeed}) => {
+import { NavLink } from "react-router-dom";
+const Header = () => {
 
     return ( 
         <header>
-            <div className="flex-wrap">
-                <button className={feed === 'hot'? 'active' : ''} onClick={(() => setFeed('hot'))}>Hot</button>
-                <button className={feed === 'new'? 'active' : ''} onClick={(() => setFeed('new'))}>New</button>
-                <button className={feed === 'rising'? 'active' : ''} onClick={(() => setFeed('rising'))}>Rising</button>
-            </div>
+            <nav className="flex-wrap">
+               <NavLink to="/reactjs/hot" activeClassName="active">Hot</NavLink>
+               <NavLink to="/reactjs/new" activeClassName="active">New</NavLink> 
+               <NavLink to="/reactjs/rising" activeClassName="active">Rising</NavLink>
+            </nav>
         </header>
     );
 }
