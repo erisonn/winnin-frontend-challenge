@@ -92,22 +92,29 @@ body, html, #root, .App {
   border: 1px solid rgba(0, 0, 0, 0.466);
   margin-right: 10px;
   margin-left: 10px;
+  border-radius: 5px;
 }
 
 .feed .post .post-img img {
   width: inherit;
   height: inherit;
-  border-radius: 3px;
+  border-radius: inherit;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.feed .post .post-content .subreddit span {
+.feed .post .post-content .subreddit a {
   font-size: 13px;
+  text-decoration: none;
+  color: #585858;
 }
 
-.feed .post .post-content .subreddit span:hover {
+.feed .post .post-content .subreddit a:hover {
   text-decoration: underline;
+}
+
+.feed .post .post-content .subreddit a:visited {
+  color: #585858;
 }
 
 .feed .post .post-content .post-title {

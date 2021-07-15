@@ -71,19 +71,25 @@
             border: 1px solid rgba(0, 0, 0, 0.466);
             margin-right: 10px;
             margin-left: 10px;
+            border-radius: 5px;
             img {
                 width: inherit;
                 height: inherit;
-                border-radius: 3px;
+                border-radius: inherit;
                 object-fit: cover;
             }   
         }
         .post-content {
             .subreddit {
-                span {
+                a {
                     font-size: 13px;
+                    text-decoration: none;
+                    color: rgb(88, 88, 88);
                     &:hover {
                         text-decoration: underline;
+                    }
+                    &:visited {
+                        color: rgb(88, 88, 88);
                     }
                 }
             }

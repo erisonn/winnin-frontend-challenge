@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-const Header = () => {
+const Header = ({ sub }) => {
 
     return ( 
         <header>
             <nav className="flex-wrap">
-               <NavLink to="/reactjs/hot" activeClassName="active">Hot</NavLink>
-               <NavLink to="/reactjs/new" activeClassName="active">New</NavLink> 
-               <NavLink to="/reactjs/rising" activeClassName="active">Rising</NavLink>
+               <NavLink exact to={`/r/${sub}/hot`} activeClassName="active">Hot</NavLink>
+               <NavLink to={`/r/${sub}/new`} activeClassName="active">New</NavLink> 
+               <NavLink to={`/r/${sub}/rising`} activeClassName="active">Rising</NavLink>
             </nav>
         </header>
     );

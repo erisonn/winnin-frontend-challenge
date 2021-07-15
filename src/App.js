@@ -1,5 +1,4 @@
 import { BrowserRouter, Redirect } from "react-router-dom";
-import Header from "./components/Header";
 import Router from './Router'
 
 function App() {
@@ -7,8 +6,7 @@ function App() {
   return (
       <div className="App">
         <BrowserRouter>
-          <Redirect to='/reactjs/hot'/>
-          <Header />
+          <Redirect to='/r/popular/hot'/>
           <Router/>
         </BrowserRouter>
       </div>
