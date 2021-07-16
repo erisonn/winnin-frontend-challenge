@@ -1,13 +1,21 @@
 import { NavLink } from "react-router-dom";
-const Header = ({ sub }) => {
+import Logo from '../svg/logo.svg'
+import SubsMenu from "./SubsMenu";
+const Header = ({ sub, defaultSubs }) => {
 
     return ( 
         <header>
-            <nav className="flex-wrap">
-               <NavLink exact to={`/r/${sub}/hot`} activeClassName="active">Hot</NavLink>
-               <NavLink to={`/r/${sub}/new`} activeClassName="active">New</NavLink> 
-               <NavLink to={`/r/${sub}/rising`} activeClassName="active">Rising</NavLink>
-            </nav>
+            <div className="header-wrap">
+                <nav className="nav-links">
+                    <NavLink exact to={`/r/${sub}/hot`} activeClassName="active">Hot</NavLink>
+                    <NavLink to={`/r/${sub}/new`} activeClassName="active">New</NavLink> 
+                    <NavLink to={`/r/${sub}/rising`} activeClassName="active">Rising</NavLink>
+                </nav>
+                <SubsMenu sub={sub} defaultSubs={defaultSubs}/>
+                <div className="logo">
+                    <NavLink to='/r/popular/hot' activeClassName=''><img src={Logo} alt="Reddit" /></NavLink>
+                </div>
+            </div>
         </header>
     );
 }

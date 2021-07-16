@@ -9,6 +9,7 @@ const PostList = () => {
     //states
     const [isLoading, setIsLoading] = useState(null)
     const [posts, setPosts] = useState([])
+    const [defaultSubs, setDefaultSubs] = useState([])
     const [error, setError] = useState(null)
     const [after, setAfter] = useState(null)
 
@@ -17,8 +18,9 @@ const PostList = () => {
     const { feed = '' } = useParams()
 
     //API
-    const API_URL = `https://www.reddit.com/r/${sub}/${feed}.json?limit=5`
-    const PAGINATED_URL = `https://www.reddit.com/r/${sub}/${feed}/.json?limit=5&after=${after}&count=10`
+    const DEFAULT_SUBS = `https://www.reddit.com/subreddits/default/.json?limit=100`
+    const API_URL = `https://www.reddit.com/r/${sub}/${feed}.json?limit=10`
+    const PAGINATED_URL = `https://www.reddit.com/r/${sub}/${feed}/.json?limit=10&after=${after}&count=10`
 
     useEffect(() => {
         setIsLoading(true)
@@ -27,6 +29,7 @@ const PostList = () => {
         console.log(API_URL)
 
         fetchAPI(API_URL)
+        fetchSUBS()
     },[feed, sub])
 
     const fetchAPI = (url) => {
@@ -52,21 +55,32 @@ const PostList = () => {
         setIsLoading(false)
         })
     }
+    const fetchSUBS = () => {
+        fetch(DEFAULT_SUBS)
+        .then(response => response.json())
+        .then(newResponse => setDefaultSubs(newResponse.data.children))
+        .catch(error => console.log(error))
+    }
     
     return ( 
         <>
-        <Header sub ={sub}/>
+        <Header sub ={sub} defaultSubs={defaultSubs}/>
         <div className="feed">
-            {posts.map(post =><Post post={post.data} key={post.data.id}/>)}
-            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>}
-            {after &&  
-            <div className="ver-mais">
-                <button onClick={() => fetchAPI(PAGINATED_URL)}>Load more</button>
-            </div>}
-            {error && 
+
+            {error === null ? 
+            posts.map(post =><Post post={post.data} key={post.data.id}/>) 
+            : 
             <div className="error-handling">
                 <p>Error on loading posts.</p>
                 <button onClick={() => fetchAPI(API_URL)}>Try Again</button>
+            </div>
+            }
+
+            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>}
+
+            {after &&  
+            <div className="ver-mais">
+                <button onClick={() => fetchAPI(PAGINATED_URL)}>Load more</button>
             </div>}
         </div>
         </>
