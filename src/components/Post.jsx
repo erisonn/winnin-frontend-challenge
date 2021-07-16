@@ -6,7 +6,7 @@ const Post = ({post}) => {
     return ( 
         <div className="post">
             <div className='post-img'>
-                <img src={post.thumbnail} alt="" />
+                <img src={post.thumbnail} alt="" className={post.over_18 && 'nsfw'}/>
             </div>
             <div className='post-content'>
                 <div className='subreddit'><NavLink to={`/r/${post.subreddit}/hot`} activeClassName=''>{post.subreddit_name_prefixed}</NavLink></div>

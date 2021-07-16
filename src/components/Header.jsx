@@ -13,7 +13,7 @@ const Header = ({ sub, defaultSubs }) => {
                 </nav>
                 <SubsMenu sub={sub} defaultSubs={defaultSubs}/>
                 <div className="logo">
-                    <NavLink to='/r/popular/hot' activeClassName=''><img src={Logo} alt="Reddit" /></NavLink>
+                    <NavLink to='/' activeClassName=''><img src={Logo} alt="Reddit" className="logo-img"/></NavLink>
                 </div>
             </div>
         </header>

@@ -109,7 +109,7 @@ body, html, #root, .App {
   display: none;
 }
 
-.App header .logo a img {
+.App header .logo a .logo-img {
   height: 40px;
 }
 
@@ -158,6 +158,11 @@ body, html, #root, .App {
   border-radius: inherit;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.feed .post .post-img .nsfw {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
 }
 
 .feed .post .post-content .subreddit a {
@@ -278,5 +283,40 @@ button {
 
 button:hover {
   background-color: rgba(128, 128, 128, 0.144);
+}
+
+@media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 15px !important;
+  }
+  p, a {
+    font-size: 13px !important;
+  }
+  .post-content {
+    margin-right: 5px !important;
+  }
+  .subs-menu {
+    max-width: 110px !important;
+  }
+  .dropdown-content {
+    max-width: 110px !important;
+  }
+  .dropdown-content a {
+    font-size: 10px !important;
+  }
+  span {
+    font-size: 13px !important;
+  }
+  .logo-img {
+    height: 30px !important;
+    margin-left: 8px;
+  }
+  nav a {
+    padding: 5px 10px 5px 10px !important;
+    margin-right: 3px !important;
+  }
+  .header-wrap {
+    margin-left: 5px !important;
+  }
 }
 /*# sourceMappingURL=index.css.map */

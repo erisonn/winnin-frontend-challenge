@@ -6,7 +6,6 @@ function App() {
   return (
       <div className="App">
         <BrowserRouter>
-          <Redirect to='/r/popular/hot'/>
           <Router/>
         </BrowserRouter>
       </div>

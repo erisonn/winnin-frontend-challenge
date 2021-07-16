@@ -97,7 +97,7 @@
             .logo {
                 a {
                     
-                    img {
+                    .logo-img {
                         height: 40px;
                     }
                 }
@@ -138,6 +138,9 @@
                 border-radius: inherit;
                 object-fit: cover;
             }   
+            .nsfw {
+                filter: blur(3px);
+            }
         }
         .post-content {
             .subreddit {
@@ -238,5 +241,42 @@
         transition: 0.2s ease-in-out;
         &:hover {
             background-color: $hover-grey;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        h1 {
+            font-size: 15px !important;
+        }
+        p, a {
+            font-size: 13px !important;
+        }
+        .post-content {
+            margin-right: 5px !important;
+        }
+        .subs-menu {
+            max-width: 110px !important;
+        }
+        .dropdown-content {
+            max-width: 110px !important;
+            a {
+                font-size: 10px !important;
+            }
+        }
+        span {
+            font-size: 13px !important;
+        }
+        .logo-img {
+            height: 30px !important;
+            margin-left: 8px;
+        }
+        nav {
+            a {
+                padding: 5px 10px 5px 10px !important;
+                margin-right: 3px !important;
+            }
+        }
+        .header-wrap {
+            margin-left: 5px !important;
         }
     }
