@@ -14,7 +14,7 @@ body, html, #root, .App {
   padding-bottom: 50px;
 }
 
-.App header {
+header {
   position: relative;
   top: 20px;
   background-color: white;
@@ -24,7 +24,7 @@ body, html, #root, .App {
   height: 60px;
 }
 
-.App header .header-wrap {
+.header-wrapper {
   margin: 0px 20px 0px 20px;
   height: inherit;
   display: -webkit-box;
@@ -38,7 +38,7 @@ body, html, #root, .App {
           justify-content: space-between;
 }
 
-.App header .header-wrap nav a {
+.nav-links {
   text-decoration: none;
   color: #838383;
   background-color: transparent;
@@ -53,11 +53,11 @@ body, html, #root, .App {
   transition: 0.2s ease-in-out;
 }
 
-.App header .header-wrap nav a:hover {
+.nav-links:hover {
   background-color: rgba(128, 128, 128, 0.144);
 }
 
-.App header .subs-menu {
+.subs-menu {
   width: 150px;
   background-color: #e7e7e7;
   text-align: center;
@@ -67,7 +67,7 @@ body, html, #root, .App {
   border-radius: 5px;
 }
 
-.App header .subs-menu .dropdown-menu {
+.dropdown-menu {
   display: block;
   padding: 7px;
   color: #0079D3;
@@ -77,7 +77,7 @@ body, html, #root, .App {
   text-overflow: ellipsis;
 }
 
-.App header .subs-menu .dropdown-content {
+.dropdown-content {
   position: absolute;
   -webkit-transform: translateX(-0.5%) translateY(-0.3%);
           transform: translateX(-0.5%) translateY(-0.3%);
@@ -89,7 +89,7 @@ body, html, #root, .App {
   border-top: hidden;
 }
 
-.App header .subs-menu .dropdown-content a {
+.dropdown-content a {
   font-size: 13px;
   display: block;
   color: #444444;
@@ -99,22 +99,18 @@ body, html, #root, .App {
   text-decoration: none;
 }
 
-.App header .subs-menu .dropdown-content a:hover {
+.dropdown-content a:hover {
   color: #0079D3;
   background-color: rgba(128, 128, 128, 0.144);
 }
 
-.App header .subs-menu .dropdown-content .dropdown-feed {
+.dropdown-feed {
   display: inline-block;
   color: #444444;
   padding: 10px;
 }
 
-.App header .hidden {
-  display: none;
-}
-
-.App header .logo a .logo-img {
+.header-logo-img {
   height: 40px;
 }
 
@@ -126,7 +122,7 @@ body, html, #root, .App {
   top: 20px;
 }
 
-.feed .post {
+.post {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,12 +136,16 @@ body, html, #root, .App {
   transition: 0.2s ease-in-out;
 }
 
-.feed .post:hover {
+.post:hover {
   background-color: rgba(128, 128, 128, 0.144);
   cursor: pointer;
 }
 
-.feed .post .post-img {
+.post-content {
+  margin-right: 15px;
+}
+
+.post-img {
   width: 80px;
   height: 80px;
   background-image: url("./img/noimg.png");
@@ -157,7 +157,7 @@ body, html, #root, .App {
   border-radius: 5px;
 }
 
-.feed .post .post-img img {
+.post-img img {
   width: inherit;
   height: inherit;
   border-radius: inherit;
@@ -165,45 +165,40 @@ body, html, #root, .App {
      object-fit: cover;
 }
 
-.feed .post .post-img .nsfw {
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-}
-
-.feed .post .post-content .subreddit a {
+.post-subreddit {
   font-size: 13px;
   text-decoration: none;
   color: #585858;
 }
 
-.feed .post .post-content .subreddit a:hover {
+.post-subreddit:hover {
   text-decoration: underline;
 }
 
-.feed .post .post-content .subreddit a:visited {
+.post-subreddit:visited {
   color: #585858;
 }
 
-.feed .post .post-content .post-title {
+.post-title {
   margin: 0;
   font-size: 18px;
 }
 
-.feed .post .post-content .post-author {
+.post-author {
   margin: 0px;
   color: #a7a7a7;
 }
 
-.feed .post .post-content .post-author a {
+.post-author a {
   color: inherit;
   text-decoration: none;
 }
 
-.feed .post .post-content .post-author a:hover {
+.post-author a:hover {
   text-decoration: underline;
 }
 
-.feed .post .post-content .post-url {
+.post-url {
   color: #0079D3;
   text-decoration: none;
   display: inline-block;
@@ -270,8 +265,12 @@ body, html, #root, .App {
 }
 
 .active {
-  color: #0079D3 !important;
-  background-color: rgba(128, 128, 128, 0.062) !important;
+  color: #0079D3;
+  background-color: rgba(128, 128, 128, 0.062);
+}
+
+.hidden {
+  display: none;
 }
 
 button {
@@ -280,7 +279,7 @@ button {
   font-size: 18px;
   font-weight: bold;
   padding: 7px 15px 7px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
   -webkit-transition: 0.2s ease-in-out;
@@ -292,36 +291,25 @@ button:hover {
 }
 
 @media only screen and (max-width: 700px) {
-  h1 {
-    font-size: 15px !important;
+  .post-title {
+    font-size: 13px;
   }
   p, a, span {
-    font-size: 13px !important;
-  }
-  .post-content {
-    margin-right: 5px !important;
-  }
-  .subs-menu {
-    width: 110px !important;
-  }
-  .dropdown-content {
-    -webkit-transform: translateY(3%) !important;
-            transform: translateY(3%) !important;
-    border-top: 1px solid rgba(128, 128, 128, 0.527) !important;
-  }
-  .dropdown-content a {
     font-size: 10px !important;
   }
-  .logo-img {
-    height: 30px !important;
+  .subs-menu {
+    width: 110px;
+  }
+  .header-logo-img {
+    height: 30px;
     margin-left: 8px;
   }
-  nav a {
-    padding: 5px 10px 5px 10px !important;
-    margin-right: 3px !important;
+  .nav-links {
+    padding: 5px 10px 5px 10px;
+    margin-right: 3px;
   }
-  .header-wrap {
-    margin-left: 5px !important;
+  .header-wrapper {
+    margin-left: 5px;
   }
 }
 /*# sourceMappingURL=index.css.map */

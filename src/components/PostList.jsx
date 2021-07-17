@@ -16,8 +16,8 @@ const PostList = () => {
     const { sort = '' } = useParams()
 
     const DEFAULT_SUBS = `https://www.reddit.com/subreddits/default/.json?limit=100`
-    const API_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=10`
-    const PAGINATED_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=10&after=${after}&count=10`
+    const API_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=20`
+    const PAGINATED_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=20&after=${after}&count=10`
 
     useEffect(() => {
         setIsLoading(true)
@@ -64,19 +64,14 @@ const PostList = () => {
         <>
         <Header sub ={sub} defaultSubs={defaultSubs}/>
         <div className="feed">
-
-            {error === null ? 
-            posts.map(post =><Post post={post.data} key={post.data.id}/>) 
-            : 
+            {posts.map(post =><Post post={post.data} key={post.data.id}/>)}
+            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>} {/*Caso isLoading seja 'true', renderiza o SVG de loading*/}
+            {error && 
             <div className="error-handling">
                 <p>Error on loading posts.</p>
                 <button onClick={() => fetchAPI(API_URL)}>Try Again</button>
-            </div>
-            }
-
-            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>} {/*Caso isLoading seja 'true', renderiza o SVG de loading*/}
-
-            {after && 
+            </div>}
+            {after &&
             <div className="ver-mais">
                 <button onClick={() => fetchAPI(PAGINATED_URL)}>Load more</button>
             </div>}

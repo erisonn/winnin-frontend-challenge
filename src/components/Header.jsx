@@ -5,15 +5,15 @@ const Header = ({ sub, defaultSubs }) => {
 
     return ( 
         <header>
-            <div className="header-wrap">
-                <nav className="nav-links">
-                    <NavLink exact to={sub !== ''? `/r/${sub}/` : '/'} activeClassName="active">Hot</NavLink>
-                    <NavLink to={sub !== ''? `/r/${sub}/new` : '/new'} activeClassName="active">New</NavLink> 
-                    <NavLink to={sub !== ''? `/r/${sub}/rising` : '/rising'} activeClassName="active">Rising</NavLink>
+            <div className="header-wrapper">
+                <nav>
+                    <NavLink exact to={sub !== ''? `/r/${sub}/` : '/'} className="nav-links" activeClassName="active">Hot</NavLink>
+                    <NavLink to={sub !== ''? `/r/${sub}/new` : '/new'} className="nav-links" activeClassName="active">New</NavLink> 
+                    <NavLink to={sub !== ''? `/r/${sub}/rising` : '/rising'} className="nav-links" activeClassName="active">Rising</NavLink>
                 </nav>
                 <SubsMenu sub={sub} defaultSubs={defaultSubs}/>
                 <div className="logo">
-                    <NavLink to='/' activeClassName=''><img src={Logo} alt="Reddit" className="logo-img"/></NavLink>
+                    <NavLink to='/' activeClassName=''><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
             </div>
         </header>
