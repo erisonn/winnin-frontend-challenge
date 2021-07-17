@@ -6,21 +6,18 @@ import LoadingSVG from '../svg/loading.svg'
 
 const PostList = () => {
 
-    //states
     const [isLoading, setIsLoading] = useState(null)
     const [posts, setPosts] = useState([])
     const [defaultSubs, setDefaultSubs] = useState([])
     const [error, setError] = useState(null)
     const [after, setAfter] = useState(null)
 
-    //parametros
-    const { sub = 'popular' } = useParams()
-    const { feed = '' } = useParams()
+    const { sub = '' } = useParams()
+    const { sort = '' } = useParams()
 
-    //API
     const DEFAULT_SUBS = `https://www.reddit.com/subreddits/default/.json?limit=100`
-    const API_URL = `https://www.reddit.com/r/${sub}/${feed}.json?limit=10`
-    const PAGINATED_URL = `https://www.reddit.com/r/${sub}/${feed}/.json?limit=10&after=${after}&count=10`
+    const API_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=10`
+    const PAGINATED_URL = `https://www.reddit.com/${sub !== '' ? `r/${sub}/` : ''}${sort}.json?limit=10&after=${after}&count=10`
 
     useEffect(() => {
         setIsLoading(true)
@@ -30,7 +27,7 @@ const PostList = () => {
 
         fetchAPI(API_URL)
         fetchSUBS()
-    },[feed, sub])
+    },[sort, sub])
 
     const fetchAPI = (url) => {
         setIsLoading(true)
@@ -55,6 +52,7 @@ const PostList = () => {
         setIsLoading(false)
         })
     }
+    
     const fetchSUBS = () => {
         fetch(DEFAULT_SUBS)
         .then(response => response.json())
@@ -76,9 +74,9 @@ const PostList = () => {
             </div>
             }
 
-            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>}
+            {isLoading && <div className="loading"><img src={LoadingSVG} alt="Loading..." /></div>} {/*Caso isLoading seja 'true', renderiza o SVG de loading*/}
 
-            {after &&  
+            {after && 
             <div className="ver-mais">
                 <button onClick={() => fetchAPI(PAGINATED_URL)}>Load more</button>
             </div>}

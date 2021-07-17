@@ -7,9 +7,9 @@ const Header = ({ sub, defaultSubs }) => {
         <header>
             <div className="header-wrap">
                 <nav className="nav-links">
-                    <NavLink exact to={`/r/${sub}/hot`} activeClassName="active">Hot</NavLink>
-                    <NavLink to={`/r/${sub}/new`} activeClassName="active">New</NavLink> 
-                    <NavLink to={`/r/${sub}/rising`} activeClassName="active">Rising</NavLink>
+                    <NavLink exact to={sub !== ''? `/r/${sub}/` : '/'} activeClassName="active">Hot</NavLink>
+                    <NavLink to={sub !== ''? `/r/${sub}/new` : '/new'} activeClassName="active">New</NavLink> 
+                    <NavLink to={sub !== ''? `/r/${sub}/rising` : '/rising'} activeClassName="active">Rising</NavLink>
                 </nav>
                 <SubsMenu sub={sub} defaultSubs={defaultSubs}/>
                 <div className="logo">

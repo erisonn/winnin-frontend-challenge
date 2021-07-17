@@ -9,7 +9,7 @@ const Post = ({post}) => {
                 <img src={post.thumbnail} alt="" className={`${post.over_18 && 'nsfw'}`}/>
             </div>
             <div className='post-content'>
-                <div className='subreddit'><NavLink to={`/r/${post.subreddit}/hot`} activeClassName=''>{post.subreddit_name_prefixed}</NavLink></div>
+                <div className='subreddit'><NavLink to={`/r/${post.subreddit}`} activeClassName=''>{post.subreddit_name_prefixed}</NavLink></div>
                 <h1 className='post-title'>{post.title}</h1>
                 <p className='post-author'>Posted {convertUnix(post.created_utc)} by <a href="/#">{post.author}</a></p>
                 <a href={post.url_overridden_by_dest} target='_blank' rel="noreferrer" className='post-url'>{post.url_overridden_by_dest}</a>

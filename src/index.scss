@@ -16,6 +16,9 @@
   .App {
       background-color: rgba(195, 202, 214, 0.678);
       padding-bottom: 50px;
+
+// Header
+
         header {
             position: relative;
             top: 20px;
@@ -78,9 +81,8 @@
                     a {
                         font-size: 13px;
                         display: block;
-                        border-bottom: 1px solid $border-grey;
                         color: rgb(68, 68, 68);
-                        padding: 5px 0px 5px 0px;
+                        padding: 7px 0px 7px 0px;
                         transition: 0.2s ease-in-out;
                         text-decoration: none;
                         &:hover {
@@ -88,7 +90,11 @@
                             background-color: $hover-grey;
                         }
                     }
-                    
+                    .dropdown-feed {
+                        display: inline-block;
+                        color: rgb(68, 68, 68);
+                        padding: 10px;
+                    }
                 }
             }
             .hidden {
@@ -96,7 +102,6 @@
             }
             .logo {
                 a {
-                    
                     .logo-img {
                         height: 40px;
                     }
@@ -104,6 +109,8 @@
             }
         }
     }
+
+// Feed
 
 .feed {
     background-color: white;
@@ -185,6 +192,8 @@
         }
     }
 }
+
+// SVG de loading
     .loading {
         position: fixed;
         left: 50%;
@@ -249,23 +258,21 @@
         h1 {
             font-size: 15px !important;
         }
-        p, a {
+        p, a, span {
             font-size: 13px !important;
         }
         .post-content {
             margin-right: 5px !important;
         }
         .subs-menu {
-            max-width: 110px !important;
+            width: 110px !important;
         }
         .dropdown-content {
-            max-width: 110px !important;
+            transform: translateY(3%) !important;
+            border-top: 1px solid $border-grey !important;
             a {
                 font-size: 10px !important;
             }
-        }
-        span {
-            font-size: 13px !important;
         }
         .logo-img {
             height: 30px !important;

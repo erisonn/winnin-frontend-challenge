@@ -92,9 +92,8 @@ body, html, #root, .App {
 .App header .subs-menu .dropdown-content a {
   font-size: 13px;
   display: block;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.527);
   color: #444444;
-  padding: 5px 0px 5px 0px;
+  padding: 7px 0px 7px 0px;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   text-decoration: none;
@@ -103,6 +102,12 @@ body, html, #root, .App {
 .App header .subs-menu .dropdown-content a:hover {
   color: #0079D3;
   background-color: rgba(128, 128, 128, 0.144);
+}
+
+.App header .subs-menu .dropdown-content .dropdown-feed {
+  display: inline-block;
+  color: #444444;
+  padding: 10px;
 }
 
 .App header .hidden {
@@ -290,23 +295,22 @@ button:hover {
   h1 {
     font-size: 15px !important;
   }
-  p, a {
+  p, a, span {
     font-size: 13px !important;
   }
   .post-content {
     margin-right: 5px !important;
   }
   .subs-menu {
-    max-width: 110px !important;
+    width: 110px !important;
   }
   .dropdown-content {
-    max-width: 110px !important;
+    -webkit-transform: translateY(3%) !important;
+            transform: translateY(3%) !important;
+    border-top: 1px solid rgba(128, 128, 128, 0.527) !important;
   }
   .dropdown-content a {
     font-size: 10px !important;
-  }
-  span {
-    font-size: 13px !important;
   }
   .logo-img {
     height: 30px !important;
