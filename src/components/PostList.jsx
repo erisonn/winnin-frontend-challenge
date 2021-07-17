@@ -23,7 +23,6 @@ const PostList = () => {
         setIsLoading(true)
         setError(null)
         setAfter(null)
-        console.log(API_URL)
 
         fetchAPI(API_URL)
         fetchSUBS()
