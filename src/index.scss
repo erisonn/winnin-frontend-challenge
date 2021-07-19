@@ -139,7 +139,6 @@ header {
     height: 80px;
     margin-right: 10px;
     margin-left: 10px;
-    overflow: hidden;
     img {
         width: inherit;
         height: inherit;
@@ -160,7 +159,7 @@ header {
 }
 .post-title {
     color: white;
-    margin: 0;
+    margin: 0px;
     font-size: 18px;
 }
 .post-author {
@@ -237,7 +236,7 @@ header {
     display: none;
 }
 .nsfw {
-    filter: blur(15px);
+    filter: blur(5px);
 }
 button {
     color: rgb(131, 131, 131);
