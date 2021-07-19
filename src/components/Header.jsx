@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from '../svg/logo.svg'
 import SubsMenu from "./SubsMenu";
 const Header = ({ sub, defaultSubs }) => {
+
+    useEffect (() => {
+        document.title = sub === '' ? 'reddit: the front page of the internet' : sub
+    }, [sub])
 
     return ( 
         <header>

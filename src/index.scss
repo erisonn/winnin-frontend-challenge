@@ -9,13 +9,13 @@ body, html, #root, .App {
     min-height: 120vh;
     margin: 0;
 }
-$link-grey: rgb(131, 131, 131);
+$link-grey: whitesmoke;
 $border-grey: rgba(128, 128, 128, 0.527);
 $hover-grey: rgba(128, 128, 128, 0.144);
-$reddit-blue: #0079D3;
+$dracula-blue: #8be9fd;
 
 .App {
-    background-color: rgba(195, 202, 214, 0.678);
+    background-color: #282a36;
     padding-bottom: 50px;
 }
     
@@ -23,7 +23,7 @@ $reddit-blue: #0079D3;
 header {
     position: relative;
     top: 20px;
-    background-color: white;
+    background-color: #44475a;
     max-width: 1500px;
     margin: 0 auto 20px auto;
     border: 1px solid $border-grey;
@@ -56,7 +56,7 @@ header {
 // Header Dropdown menu
 .subs-menu {
     width: 150px;
-    background-color: rgb(231, 231, 231);
+    background-color: #44475a;
     text-align: center;
     z-index: 1;
     border: 1px solid $border-grey;
@@ -66,7 +66,7 @@ header {
 .dropdown-menu {
     display: block;
     padding: 7px;
-    color: $reddit-blue;
+    color: $dracula-blue;
     font-size: 18px;
     font-weight: bold;
     overflow: hidden;
@@ -84,19 +84,19 @@ header {
     a {
         font-size: 13px;
         display: block;
-        color: rgb(68, 68, 68);
+        color: white;
         padding: 7px 0px 7px 0px;
         transition: 0.2s ease-in-out;
         text-decoration: none;
         &:hover {
-            color: $reddit-blue;
+            color: $dracula-blue;
             background-color: $hover-grey;
         }
     }
 }
 .dropdown-feed {
     display: inline-block;
-    color: rgb(68, 68, 68);
+    color: white;
     padding: 10px;
 }
 .header-logo-img {
@@ -105,7 +105,7 @@ header {
 
 // Feed
 .feed {
-    background-color: white;
+    background-color: #44475a;
     max-width: 1500px;
     margin: 0 auto;
     position: relative;
@@ -114,7 +114,7 @@ header {
 .post {
     display: flex;
     align-items: center;
-    border: 1px solid rgba(128, 128, 128, 0.527);
+    border: 1px solid $border-grey;
     border-bottom: 0.5px;
     min-height: 100px;
     transition: 0.2s ease-in-out;
@@ -129,38 +129,34 @@ header {
 .post-img {
     width: 80px;
     height: 80px;
-    background-image: url('./img/noimg.png');
-    background-size: contain;
-    background-color: rgba(128, 128, 128, 0.096);
-    border: 1px solid rgba(0, 0, 0, 0.466);
     margin-right: 10px;
     margin-left: 10px;
-    border-radius: 5px;
     img {
         width: inherit;
         height: inherit;
-        border-radius: inherit;
-        object-fit: cover;
+        border-radius: 2px;
+        object-fit: contain;
     }   
 }
 .post-subreddit {
     font-size: 13px;
     text-decoration: none;
-    color: rgb(88, 88, 88);
+    color: $link-grey;
     &:hover {
         text-decoration: underline;
     }
     &:visited {
-        color: rgb(88, 88, 88);
+        color: $link-grey;
     }
 }
 .post-title {
+    color: white;
     margin: 0;
     font-size: 18px;
 }
 .post-author {
     margin: 0px;
-    color: rgb(167, 167, 167);
+    color: whitesmoke;
     a {
         color: inherit;
         text-decoration: none;
@@ -170,7 +166,7 @@ header {
     }
 }
 .post-url {
-    color: $reddit-blue;
+    color: $dracula-blue;
     text-decoration: none;
     display: inline-block;
     white-space: nowrap;
@@ -221,11 +217,11 @@ header {
     transform: translateX(-50%);
     border-radius: 5px;
     button {
-        color: $reddit-blue;
+        color: $dracula-blue;
     }
 }
 .active {
-    color: $reddit-blue;
+    color: $dracula-blue;
     background-color: rgba(128, 128, 128, 0.062);
 }
 .hidden {

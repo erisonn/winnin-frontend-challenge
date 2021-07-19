@@ -10,14 +10,14 @@ body, html, #root, .App {
 }
 
 .App {
-  background-color: rgba(195, 202, 214, 0.678);
+  background-color: #282a36;
   padding-bottom: 50px;
 }
 
 header {
   position: relative;
   top: 20px;
-  background-color: white;
+  background-color: #44475a;
   max-width: 1500px;
   margin: 0 auto 20px auto;
   border: 1px solid rgba(128, 128, 128, 0.527);
@@ -40,7 +40,7 @@ header {
 
 .nav-links {
   text-decoration: none;
-  color: #838383;
+  color: whitesmoke;
   background-color: transparent;
   font-size: 18px;
   font-weight: bold;
@@ -59,7 +59,7 @@ header {
 
 .subs-menu {
   width: 150px;
-  background-color: #e7e7e7;
+  background-color: #44475a;
   text-align: center;
   z-index: 1;
   border: 1px solid rgba(128, 128, 128, 0.527);
@@ -70,7 +70,7 @@ header {
 .dropdown-menu {
   display: block;
   padding: 7px;
-  color: #0079D3;
+  color: #8be9fd;
   font-size: 18px;
   font-weight: bold;
   overflow: hidden;
@@ -92,7 +92,7 @@ header {
 .dropdown-content a {
   font-size: 13px;
   display: block;
-  color: #444444;
+  color: white;
   padding: 7px 0px 7px 0px;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
@@ -100,13 +100,13 @@ header {
 }
 
 .dropdown-content a:hover {
-  color: #0079D3;
+  color: #8be9fd;
   background-color: rgba(128, 128, 128, 0.144);
 }
 
 .dropdown-feed {
   display: inline-block;
-  color: #444444;
+  color: white;
   padding: 10px;
 }
 
@@ -115,7 +115,7 @@ header {
 }
 
 .feed {
-  background-color: white;
+  background-color: #44475a;
   max-width: 1500px;
   margin: 0 auto;
   position: relative;
@@ -148,27 +148,22 @@ header {
 .post-img {
   width: 80px;
   height: 80px;
-  background-image: url("./img/noimg.png");
-  background-size: contain;
-  background-color: rgba(128, 128, 128, 0.096);
-  border: 1px solid rgba(0, 0, 0, 0.466);
   margin-right: 10px;
   margin-left: 10px;
-  border-radius: 5px;
 }
 
 .post-img img {
   width: inherit;
   height: inherit;
-  border-radius: inherit;
-  -o-object-fit: cover;
-     object-fit: cover;
+  border-radius: 2px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .post-subreddit {
   font-size: 13px;
   text-decoration: none;
-  color: #585858;
+  color: whitesmoke;
 }
 
 .post-subreddit:hover {
@@ -176,17 +171,18 @@ header {
 }
 
 .post-subreddit:visited {
-  color: #585858;
+  color: whitesmoke;
 }
 
 .post-title {
+  color: white;
   margin: 0;
   font-size: 18px;
 }
 
 .post-author {
   margin: 0px;
-  color: #a7a7a7;
+  color: whitesmoke;
 }
 
 .post-author a {
@@ -199,7 +195,7 @@ header {
 }
 
 .post-url {
-  color: #0079D3;
+  color: #8be9fd;
   text-decoration: none;
   display: inline-block;
   white-space: nowrap;
@@ -261,11 +257,11 @@ header {
 }
 
 .error-handling button {
-  color: #0079D3;
+  color: #8be9fd;
 }
 
 .active {
-  color: #0079D3;
+  color: #8be9fd;
   background-color: rgba(128, 128, 128, 0.062);
 }
 

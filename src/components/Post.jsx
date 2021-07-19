@@ -1,12 +1,20 @@
 import convertUnix from "../utils/convertUnix";
 import { NavLink } from "react-router-dom";
+import ReadOnly from '../svg/read.svg'
 
 const Post = ({post}) => {
 
     return ( 
         <div className="post">
             <div className='post-img'>
-                <img src={post.thumbnail} alt="" className={`${post.over_18 && 'nsfw'}`}/>
+                <img src={
+                post.thumbnail === "" || 
+                post.thumbnail === "self" ||
+                post.thumbnail === "default" ||
+                post.thumbnail === "spoiler" ||
+                post.thumbnail === "image" ||
+                post.thumbnail === "nsfw" ? 
+                ReadOnly : post.thumbnail} alt="" className={post.over_18 === true ? 'nsfw' : ''}/>
             </div>
             <div className='post-content'>
                 <div><NavLink to={`/r/${post.subreddit}`} className='post-subreddit' activeClassName=''>{post.subreddit_name_prefixed}</NavLink></div>
