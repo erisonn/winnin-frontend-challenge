@@ -145,11 +145,21 @@ header {
   margin-right: 15px;
 }
 
+.post-content span {
+  color: #ff5555;
+  border: 1px solid #ff5555;
+  border-radius: 2px;
+  font-size: 13px;
+  margin-right: 5px;
+  padding: 0px 3px 0px 3px;
+}
+
 .post-img {
   width: 80px;
   height: 80px;
   margin-right: 10px;
   margin-left: 10px;
+  overflow: hidden;
 }
 
 .post-img img {
@@ -267,6 +277,11 @@ header {
 
 .hidden {
   display: none;
+}
+
+.nsfw {
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
 }
 
 button {

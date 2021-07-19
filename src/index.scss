@@ -125,12 +125,21 @@ header {
 }
 .post-content {
     margin-right: 15px;
+    span {
+        color: #ff5555;
+        border: 1px solid #ff5555;
+        border-radius: 2px;
+        font-size: 13px;
+        margin-right: 5px;
+        padding: 0px 3px 0px 3px;
+    }
 }
 .post-img {
     width: 80px;
     height: 80px;
     margin-right: 10px;
     margin-left: 10px;
+    overflow: hidden;
     img {
         width: inherit;
         height: inherit;
@@ -226,6 +235,9 @@ header {
 }
 .hidden {
     display: none;
+}
+.nsfw {
+    filter: blur(15px);
 }
 button {
     color: rgb(131, 131, 131);
