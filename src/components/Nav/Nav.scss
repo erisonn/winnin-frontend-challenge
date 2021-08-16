@@ -1,0 +1,21 @@
+$link-grey: whitesmoke;
+$border-grey: rgba(128, 128, 128, 0.527);
+$hover-grey: rgba(128, 128, 128, 0.144);
+$dracula-blue: #8be9fd;
+
+.nav-links {
+    text-decoration: none;
+    color: $link-grey;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 7px 15px 7px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        background-color: $hover-grey;
+    }
+}

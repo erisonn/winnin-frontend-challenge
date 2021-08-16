@@ -1,25 +1,22 @@
-import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Logo from '../svg/logo.svg'
-import SubsMenu from "./SubsMenu";
-const Header = ({ sub, defaultSubs }) => {
+import Nav from "./Nav/Nav";
 
-    useEffect (() => {
-        document.title = sub === '' ? 'reddit: the front page of the internet' : sub
-    }, [sub])
+const Header = () => {
+
+    const links = [
+        {'name': 'Hot', 'to': '/hot/'},
+        {'name': 'New', 'to': '/new/'},
+        {'name': 'Rising', 'to': '/rising/'}
+    ]
 
     return ( 
         <header>
             <div className="header-wrapper">
-                <nav>
-                    <NavLink exact to={sub !== ''? `/r/${sub}/` : '/'} className="nav-links" activeClassName="active">Hot</NavLink>
-                    <NavLink to={sub !== ''? `/r/${sub}/new` : '/new'} className="nav-links" activeClassName="active">New</NavLink> 
-                    <NavLink to={sub !== ''? `/r/${sub}/rising` : '/rising'} className="nav-links" activeClassName="active">Rising</NavLink>
-                </nav>
-                <SubsMenu sub={sub} defaultSubs={defaultSubs}/>
                 <div className="logo">
                     <NavLink to='/' activeClassName=''><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
+                <Nav links={links}/>
             </div>
         </header>
     );

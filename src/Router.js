@@ -1,12 +1,13 @@
 import { Switch, Route } from "react-router-dom";
-import PostList from './components/PostList'
+import Feed from "./pages/feed";
 
 const Router = () => {
     return ( 
         <Switch>
-            <Route path ="/r/:sub?/:sort?" component={PostList}/>
-            <Route path ="/r/:sub?" component={PostList}/>
-            <Route path ="/:sort?" component={PostList}/>
+            <Route path ="/r/:sub?" component={Feed}/>
+            <Route path ="/r/:sub?/:sort?" component={Feed}/>
+            <Route exact path ="/" component={Feed}/> 
+            <Route exact path ="/:sort?" component={Feed}/>  
         </Switch>
     );
 }

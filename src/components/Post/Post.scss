@@ -1,0 +1,79 @@
+
+$link-grey: whitesmoke;
+$border-grey: rgba(128, 128, 128, 0.527);
+$hover-grey: rgba(128, 128, 128, 0.144);
+$dracula-blue: #8be9fd;
+
+.post {
+    display: flex;
+    align-items: center;
+    border: 1px solid $border-grey;
+    border-bottom: 0.5px;
+    min-height: 100px;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        background-color: $hover-grey;
+        cursor: pointer;
+    }
+}
+.post-content {
+    margin-right: 15px;
+    span {
+        color: #ff5555;
+        border: 1px solid #ff5555;
+        border-radius: 2px;
+        font-size: 13px;
+        margin-right: 5px;
+        padding: 0px 3px 0px 3px;
+    }
+}
+.post-img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    img {
+        width: inherit;
+        height: inherit;
+        border-radius: 2px;
+        object-fit: contain;
+    }   
+}
+.post-forum {
+    font-size: 13px;
+    text-decoration: none;
+    color: $link-grey;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:visited {
+        color: $link-grey;
+    }
+}
+.post-title {
+    color: white;
+    margin: 0px;
+    font-size: 18px;
+}
+.post-author {
+    margin: 0px;
+    color: whitesmoke;
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.post-media {
+    color: $dracula-blue;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 4px;
+}
