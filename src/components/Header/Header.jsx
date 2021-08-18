@@ -1,14 +1,8 @@
-import { NavLink, useParams } from "react-router-dom";
-import Logo from '../svg/logo.svg'
-import Nav from "./Nav/Nav";
+import { NavLink } from "react-router-dom";
+import './Header.scss'
+import Logo from '../../svg/logo.svg'
 
 const Header = () => {
-
-    const links = [
-        {'name': 'Hot', 'to': '/hot/'},
-        {'name': 'New', 'to': '/new/'},
-        {'name': 'Rising', 'to': '/rising/'}
-    ]
 
     return ( 
         <header>
@@ -16,7 +10,6 @@ const Header = () => {
                 <div className="logo">
                     <NavLink to='/' activeClassName=''><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
-                <Nav links={links}/>
             </div>
         </header>
     );

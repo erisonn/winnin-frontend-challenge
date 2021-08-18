@@ -2,7 +2,16 @@ $link-grey: whitesmoke;
 $border-grey: rgba(128, 128, 128, 0.527);
 $hover-grey: rgba(128, 128, 128, 0.144);
 $dracula-blue: #8be9fd;
-
+.nav-bar {
+    position: relative;
+    top: 80px;
+    background-color: #44475a;
+    padding: 10px 0px 10px 0px;
+    max-width: 1500px;
+    margin: 0px auto 20px auto;
+    border-radius: 5px;
+    border: 1px solid $border-grey;
+}
 .nav-links {
     text-decoration: none;
     color: $link-grey;
@@ -18,4 +27,9 @@ $dracula-blue: #8be9fd;
     &:hover {
         background-color: $hover-grey;
     }
+}
+.link-active {
+    color: $dracula-blue;
+    background-color: rgba(128, 128, 128, 0.062);
+    pointer-events: none;
 }

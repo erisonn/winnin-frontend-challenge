@@ -33,10 +33,13 @@ const useApiRequest = url => {
         })
     }
 
-    // const fetchSUBS = () => {
+    // const fetchSubs = () => {
     //     fetch('https://www.reddit.com/subreddits/default/.json?limit=100')
     //     .then(response => response.json())
-    //     .then(newResponse => setDefaultSubs(newResponse.data.children))
+    //     .then(newResponse => {
+    //         console.log(newResponse.data.children)
+    //         setDefaultSubs(newResponse.data.children)
+    //     })
     //     .catch(error => console.log(error))
     // }
 
@@ -44,7 +47,8 @@ const useApiRequest = url => {
         setIsLoading(true)
 
         fetchApi(url)
-    }, [url])
+        // fetchSubs()
+    }, [url]) // eslint-disable-line
 
     return { isLoading, error, data, after, pagination , fetchApi }
 }

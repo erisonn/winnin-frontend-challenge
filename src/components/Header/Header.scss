@@ -1,0 +1,25 @@
+$link-grey: whitesmoke;
+$border-grey: rgba(128, 128, 128, 0.527);
+$hover-grey: rgba(128, 128, 128, 0.144);
+$dracula-blue: #8be9fd;
+
+header {
+    position: fixed;
+    top: 0px;
+    background-color: #44475a;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    border-bottom: 1px solid $border-grey;
+    height: 50px;
+    z-index: 1;
+    .header-wrapper {
+        margin: 0px 20px 0px 20px;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;  
+        .header-logo-img {
+            height: 40px;
+        }
+    }
+}    
