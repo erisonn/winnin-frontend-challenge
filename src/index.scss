@@ -18,6 +18,13 @@ $dracula-blue: #8be9fd;
     background-color: #282a36;
     padding-bottom: 50px;
 }
+.current-sub {
+    position: relative;
+    top: 55px;
+    max-width: 1500px;
+    margin: 15px auto 0px auto;
+    color: whitesmoke;
+}
     
 .ver-mais {
     height: 50px;
@@ -72,9 +79,6 @@ $dracula-blue: #8be9fd;
     p, a, span {
         font-size: 10px !important;
     }
-    .subs-menu {
-        width: 110px;
-    }
     .header-logo-img {
         height: 30px;
         margin-left: 8px;
@@ -85,5 +89,8 @@ $dracula-blue: #8be9fd;
     }
     .header-wrapper {
         margin-left: 5px;
+    }
+    .current-sub {
+        font-size: 20px;
     }
 }

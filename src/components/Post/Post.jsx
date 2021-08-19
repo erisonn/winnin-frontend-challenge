@@ -1,13 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
 import './Post.scss'
 import pinned from './pinned.svg'
 
 const Post = (props) => {
-
-    useEffect(() => {
-        console.log(props.pinned)
-    }, []);
 
     return ( 
         <div className="post">
@@ -18,11 +13,11 @@ const Post = (props) => {
                 <div>
                     {props.pinned &&
                     <div className="pinned">
-                        <img src={pinned} alt/>
+                        <img src={pinned} alt='Pinned'/>
                         <p>PINNED</p>
                     </div>
                     }
-                    <NavLink to={props.forum} className='post-forum' activeClassName=''>{props.forum}</NavLink>
+                    <NavLink to={props.forum} className='post-forum' activeClassName='active'>{props.forum}</NavLink>
                 </div>
                 <h1 className='post-title'>{props.title}</h1>
                 <p className='post-author'>Posted {props.date} by <a href="/#">{props.author}</a></p>

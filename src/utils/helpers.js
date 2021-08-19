@@ -28,8 +28,8 @@ const formattedPosts = (data) => data.map(post => {
 
 const formattedSubs = (subs) => subs.map(sub => {
     return {
-        'name': sub.title,
-        'to': sub.url
+        'name': sub.data.display_name,
+        'to': '/' + sub.data.display_name_prefixed
     }
 })
 
@@ -48,14 +48,6 @@ const sortBy = (sub) => {
         {'name': 'Rising', 'to': '/rising/'}
         ]
 }
-
-
-// [
-//     // {'name': 'Best', 'to': '/best/'},
-//     {'name': 'Hot', 'to': '/hot/'},
-//     {'name': 'New', 'to': '/new/'},
-//     {'name': 'Rising', 'to': '/rising/'}
-// ]
 
 export { formattedPosts, formattedSubs, sortBy }
 export default convertUnix;

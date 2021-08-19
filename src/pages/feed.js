@@ -12,22 +12,23 @@ const Feed = () => {
     const { sort } = useParams()
     const subReddit = sub ? `r/${sub}` : ''
 
-    const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=5`
-    const { isLoading, error, data, after, pagination , fetchApi } = useApiRequest(url)
+    const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=50`
+    const { isLoading, error, data, after, pagination , fetchRedditPosts } = useApiRequest(url)
 
 
     if(error) {
-        return <Error errorMessage={error} handleError={() => fetchApi(url)}/>
+        return <Error errorMessage={error} handleError={() => fetchRedditPosts(url)}/>
     }
 
     return (
         <div>
             {isLoading && <Loading />}
+            {sub && <h1 className='current-sub'>r/{sub}</h1>}
             <Nav links={sortBy(sub)}/>
             <PostList posts={formattedPosts(data)}/>
             {after && 
             <div className='ver-mais'>
-                <button onClick={()=> fetchApi(pagination)}>Load More.</button>
+                <button onClick={()=> fetchRedditPosts(pagination)}>Load More.</button>
             </div>
             }
         </div>

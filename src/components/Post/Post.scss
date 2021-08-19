@@ -96,6 +96,9 @@ $dracula-blue: #8be9fd;
         color: #5ad6f1
     }
 }
+.active {
+    pointer-events: none;
+}
 
 @media only screen and (max-width: 700px) {
     .post-title {

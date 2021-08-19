@@ -9,7 +9,7 @@ const useApiRequest = url => {
     const [after, setAfter] = useState(null)
     const pagination = after ? url + `&after=${after}&count=10` : ''    
 
-    const fetchApi = (url) => {
+    const fetchRedditPosts = (url) => {
         setIsLoading(true)
         if(error) {
             setError(null)
@@ -46,11 +46,11 @@ const useApiRequest = url => {
     useEffect(() => {
         setIsLoading(true)
 
-        fetchApi(url)
+        fetchRedditPosts(url)
         // fetchSubs()
     }, [url]) // eslint-disable-line
 
-    return { isLoading, error, data, after, pagination , fetchApi }
+    return { isLoading, error, data, after, pagination , fetchRedditPosts }
 }
 
 export default useApiRequest;
