@@ -17,7 +17,7 @@ $dracula-blue: #8be9fd;
     }
 }
 .post-content {
-    margin-right: 15px;
+    margin: 10px 10px 10px 0px;
     span {
         color: #ff5555;
         border: 1px solid #ff5555;
@@ -25,6 +25,21 @@ $dracula-blue: #8be9fd;
         font-size: 13px;
         margin-right: 5px;
         padding: 0px 3px 0px 3px;
+    }
+    .pinned {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+            height: 15px;
+            filter: invert(100%) sepia(40%) saturate(3446%) hue-rotate(33deg) brightness(100%) contrast(97%);
+        }
+        p {
+            margin: 0px 0px 0px 5px;
+            color: whitesmoke;
+            font-size: 13px;
+            font-weight: bold;
+        }
     }
 }
 .post-img {
@@ -35,7 +50,7 @@ $dracula-blue: #8be9fd;
     img {
         width: inherit;
         height: inherit;
-        border-radius: 2px;
+        border-radius: 5px;
         object-fit: contain;
     }   
 }
@@ -71,11 +86,15 @@ $dracula-blue: #8be9fd;
     text-decoration: none;
     display: inline-block;
     white-space: nowrap;
-    max-width: 200px;
+    max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
     top: 4px;
+    transition: 0.1s ease-in-out;
+    &:hover {
+        color: #5ad6f1
+    }
 }
 
 @media only screen and (max-width: 700px) {

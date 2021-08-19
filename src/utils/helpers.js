@@ -1,5 +1,6 @@
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
+import defaultThumbnail from './defaultThumbnail.svg'
 
 TimeAgo.addDefaultLocale(en)
 //a data de criação dos posts da API são em UNIX. essa função passa a data para algo legível.
@@ -12,11 +13,16 @@ const formattedPosts = (data) => data.map(post => {
     return {
         'title': post.data.title,
         'mediaurl': post.data.url,
-        'thumbnail': post.data.thumbnail !== 'self' && post.data.thumbnail !== 'default' ? post.data.thumbnail:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Toicon-icon-open-read.svg/32px-Toicon-icon-open-read.svg.png',
+        'thumbnail': 
+        post.data.thumbnail !== 'self' &&
+        post.data.thumbnail !== 'default' &&
+        post.data.thumbnail !== '' &&
+        post.data.thumbnail !== 'nsfw' ? post.data.thumbnail: defaultThumbnail,
         'author': post.data.author,
         'forum': '/' + post.data.subreddit_name_prefixed,
         'date': convertUnix(post.data.created_utc),
-        'id': post.data.name
+        'id': post.data.name,
+        'pinned': post.data.stickied
     }
 })
 
@@ -51,5 +57,5 @@ const sortBy = (sub) => {
 //     {'name': 'Rising', 'to': '/rising/'}
 // ]
 
-export { formattedPosts, formattedSubs, sortBy}
+export { formattedPosts, formattedSubs, sortBy }
 export default convertUnix;

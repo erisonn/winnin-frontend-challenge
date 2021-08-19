@@ -12,7 +12,7 @@ const Feed = () => {
     const { sort } = useParams()
     const subReddit = sub ? `r/${sub}` : ''
 
-    const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=20`
+    const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=5`
     const { isLoading, error, data, after, pagination , fetchApi } = useApiRequest(url)
 
 

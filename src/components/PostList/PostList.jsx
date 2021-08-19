@@ -13,6 +13,7 @@ const PostList = ( { posts }) => {
                 mediaUrl={post.mediaurl}
                 author={post.author}
                 key={post.id}
+                pinned={post.pinned}
             />)}
         </div>
     );
