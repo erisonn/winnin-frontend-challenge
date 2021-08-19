@@ -5,8 +5,6 @@ import useSubredditList from "../../hooks/useSubredditList";
 import { formattedSubs } from "../../utils/helpers";
 import { useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
-import Nav from "../Nav/Nav";
-import feeds from '../../utils/helpers'
 
 const Header = () => {
 
