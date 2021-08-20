@@ -19,17 +19,17 @@ const formattedPosts = (data) => data.map(post => {
         post.data.thumbnail !== '' &&
         post.data.thumbnail !== 'nsfw' ? post.data.thumbnail: defaultThumbnail,
         'author': post.data.author,
-        'forum': '/' + post.data.subreddit_name_prefixed,
+        'forum': `/${post.data.subreddit_name_prefixed}`,
         'date': convertUnix(post.data.created_utc),
         'id': post.data.name,
         'pinned': post.data.stickied
     }
 })
 
-const formattedSubs = (subs) => subs.map(sub => {
+const formattedSubs = (subs) => subs && subs.map(sub => {
     return {
-        'name': sub.data.display_name,
-        'to': '/' + sub.data.display_name_prefixed
+        'name': sub.data.display_name_prefixed,
+        'to': `/${sub.data.display_name_prefixed}`
     }
 })
 
@@ -37,9 +37,9 @@ const sortBy = (sub) => {
 
     if(sub) {
         return [
-        {'name': 'Hot', 'to': '/r/' + sub + '/hot/'},
-        {'name': 'New', 'to': '/r/' + sub + '/new/'},
-        {'name': 'Rising', 'to': '/r/' + sub + '/rising/'}
+        {'name': 'Hot', 'to': `/r/${sub}/hot/`},
+        {'name': 'New', 'to': `/r/${sub}/new/`},
+        {'name': 'Rising', 'to': `/r/${sub}/rising/`}
         ]
     }
     return [

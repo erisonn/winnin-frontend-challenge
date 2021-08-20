@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react"
 
-const useSubredditList = () => {
+const useSubredditList = sub  => {
 
     const [defaultSubs, setDefaultSubs] = useState([])
-    const [error, setError] = useState(null)
 
     const fetchSubs = () => {
-        fetch('https://www.reddit.com/subreddits/default/.json?limit=100')
+        if(!sub) return;
+        fetch(`https://www.reddit.com/${sub}/.json?limit=100`)
         .then(response => response.json())
         .then(subReddits => {
-            setDefaultSubs(subReddits.data.children)
+            setDefaultSubs(subReddits.data)
         })
         .catch(error => {
             console.log(error)
-            setError('Error retrieving Subreddits list.')
         })
     }
 
     useEffect(() => {
         fetchSubs()
-    },[])
+        window.scrollTo(0, 0)
+    }, [sub]) // eslint-disable-line
 
 
-    return { defaultSubs, error }
+    return { defaultSubs }
 }
  
 export default useSubredditList;

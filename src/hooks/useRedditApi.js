@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const useApiRequest = url => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
     const [data, setData] = useState([])
-    // const [defaultSubs, setDefaultSubs] = useState([])
     const [after, setAfter] = useState(null)
-    const pagination = after ? url + `&after=${after}&count=10` : ''    
+    const pagination = after ? url + `&after=${after}&count=10` : ''
+
+    const isPaginating = useRef(null)
 
     const fetchRedditPosts = (url) => {
         setIsLoading(true)
@@ -19,8 +20,10 @@ const useApiRequest = url => {
         .then(posts => {
             setAfter(posts.data.after)
             if(!posts.data.before) {
+                isPaginating.current = false
                 setData(posts.data.children)
             } else {
+                isPaginating.current = true
                 setData([...data, ...posts.data.children])
             }
         })   
@@ -33,21 +36,12 @@ const useApiRequest = url => {
         })
     }
 
-    // const fetchSubs = () => {
-    //     fetch('https://www.reddit.com/subreddits/default/.json?limit=100')
-    //     .then(response => response.json())
-    //     .then(newResponse => {
-    //         console.log(newResponse.data.children)
-    //         setDefaultSubs(newResponse.data.children)
-    //     })
-    //     .catch(error => console.log(error))
-    // }
-
     useEffect(() => {
         setIsLoading(true)
-
         fetchRedditPosts(url)
-        // fetchSubs()
+        
+        if(isPaginating) return;
+        window.scrollTo(0, 0)
     }, [url]) // eslint-disable-line
 
     return { isLoading, error, data, after, pagination , fetchRedditPosts }

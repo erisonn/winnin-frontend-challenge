@@ -4,11 +4,10 @@ $hover-grey: rgba(128, 128, 128, 0.144);
 $dracula-blue: #8be9fd;
 .nav-bar {
     position: relative;
-    top: 80px;
     background-color: #44475a;
     padding: 10px 0px 10px 0px;
-    max-width: 1500px;
-    margin: 0px auto 20px auto;
+    max-width: 1000px;
+    margin: 15px auto;
     border-radius: 5px;
     border: 1px solid $border-grey;
 }
@@ -32,4 +31,11 @@ $dracula-blue: #8be9fd;
     color: $dracula-blue;
     background-color: rgba(128, 128, 128, 0.062);
     pointer-events: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav-links {
+        padding: 5px 10px 5px 10px;
+        margin-right: 3px;
+    }
 }

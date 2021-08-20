@@ -5,38 +5,37 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-body, html, #root, .App {
-    min-height: 120vh;
+
+body, html, #root, .App, .feed {
+    background-color: #282a36;
     margin: 0;
 }
+
 $link-grey: whitesmoke;
 $border-grey: rgba(128, 128, 128, 0.527);
 $hover-grey: rgba(128, 128, 128, 0.144);
 $dracula-blue: #8be9fd;
 
 .App {
-    background-color: #282a36;
     padding-bottom: 50px;
 }
-.current-sub {
+
+.feed {
     position: relative;
     top: 55px;
-    max-width: 1500px;
-    margin: 15px auto 0px auto;
-    color: whitesmoke;
+    margin-top: 40px;
+    padding-bottom: 50px;
 }
-    
-.ver-mais {
+
+.load-more {
     height: 50px;
     position: relative;
-    top: 30px;
     left: 50%;
-    max-width: 1500px;
+    max-width: 1000px;
     transform: translateX(-50%);
     text-align: center;
     border-top: 1px solid rgba(128, 128, 128, 0.527);
     border: 1px solid rgba(128, 128, 128, 0.527);
-    cursor: pointer;
     border-radius: 5px;
     button {
         width: 100%;
@@ -54,43 +53,12 @@ $dracula-blue: #8be9fd;
         }
     }
 }
-.hidden {
-    display: none;
-}
-// button {
-//     color: rgb(131, 131, 131);
-//     background-color: transparent;
-//     font-size: 18px;
-//     font-weight: bold;
-//     padding: 7px 15px 7px 15px;
-//     border-radius: 5px;
-//     border: none;
-//     cursor: pointer;
-//     transition: 0.2s ease-in-out;
-//     &:hover {
-//         background-color: $hover-grey;
-//     }
-// }
 
 @media only screen and (max-width: 700px) {
-    .post-title {
-        font-size: 13px;
-    }
     p, a, span {
         font-size: 10px !important;
     }
-    .header-logo-img {
-        height: 30px;
-        margin-left: 8px;
-    }
-    .nav-links {
-        padding: 5px 10px 5px 10px;
-        margin-right: 3px;
-    }
-    .header-wrapper {
-        margin-left: 5px;
-    }
-    .current-sub {
-        font-size: 20px;
+    .load-more button {
+        font-size: 12px;
     }
 }
