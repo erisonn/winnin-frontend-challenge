@@ -17,7 +17,7 @@ A página irá recarregar caso você faça alguma alteração no código.
 
 Compila o app para deploy no diretório `build`.
 
-App disponível no Heroku: 
+App disponível no Vercel: 
 
-## https://reddit-react-router.herokuapp.com/
+## https://reddit-erison.vercel.app/
 
