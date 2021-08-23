@@ -6,6 +6,10 @@ Pequeno clone do Reddit feito em React, o usuário pode navegar pelos posts do R
 
 No diretório do projeto, você pode utilizar os seguintes comandos:
 
+## `npm i`
+
+Instala as dependências do projeto.
+
 ### `npm start`
 
 Roda o app em modo de desenvolvimento.\
