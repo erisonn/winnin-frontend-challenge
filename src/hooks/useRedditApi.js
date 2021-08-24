@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 
-const useApiRequest = url => {
+const useRedditApi = url => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
     const [data, setData] = useState([])
     const [after, setAfter] = useState(null)
+
     const pagination = after ? url + `&after=${after}&count=10` : ''
 
     const isPaginating = useRef(null)
@@ -36,6 +37,10 @@ const useApiRequest = url => {
         })
     }
 
+    const handleLoadMorePosts = () => {
+        fetchRedditPosts(pagination)
+    }
+
     useEffect(() => {
         setIsLoading(true)
         fetchRedditPosts(url)
@@ -44,7 +49,7 @@ const useApiRequest = url => {
         window.scrollTo(0, 0)
     }, [url]) // eslint-disable-line
 
-    return { isLoading, error, data, after, pagination , fetchRedditPosts }
+    return { isLoading, error, data, after, pagination , fetchRedditPosts, handleLoadMorePosts }
 }
 
-export default useApiRequest;
+export default useRedditApi;

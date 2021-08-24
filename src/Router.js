@@ -1,13 +1,13 @@
 import { Switch, Route } from "react-router-dom";
-import Feed from "./pages/feed";
+import FeedWrapper from "./pages/feedWrapper";
 
 const Router = () => {
     return ( 
         <Switch>
-            <Route exact path ="/r/:sub?" component={Feed}/>  
-            <Route exact path ="/r/:sub?/:sort?" component={Feed}/>
-            <Route exact path ="/" component={Feed}/>
-            <Route exact path ="/:sort?" component={Feed}/>
+            <Route exact path ="/r/:sub?" component={FeedWrapper}/>  
+            <Route exact path ="/r/:sub?/:sort?" component={FeedWrapper}/>
+            <Route exact path ="/" component={FeedWrapper}/>
+            <Route exact path ="/:sort?" component={FeedWrapper}/>
         </Switch>
     );
 }
