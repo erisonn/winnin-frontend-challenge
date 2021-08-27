@@ -4,9 +4,13 @@ Pequeno clone do Reddit feito em React, o usuário pode navegar pelos posts do R
 
 ## Frontpage
 
+## `/` ou `/${sort}`
+
 ![Imgur](https://i.imgur.com/RWpdBU7.png)
 
 ## Subreddit
+
+## `/r/${subRedditName}` ou `/r/${subRedditName}/${sort}`
 
 ![Imgur](https://i.imgur.com/j5n2iP6.png)
 
