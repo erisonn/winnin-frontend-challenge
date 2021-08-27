@@ -2,6 +2,14 @@
 
 Pequeno clone do Reddit feito em React, o usuário pode navegar pelos posts do Reddit, e navegar pelos subreddits.
 
+## Frontpage
+
+![Imgur](https://i.imgur.com/RWpdBU7.png)
+
+## Subreddit
+
+![Imgur](https://i.imgur.com/j5n2iP6.png)
+
 ## Scripts disponíveis
 
 No diretório do projeto, você pode utilizar os seguintes comandos:
