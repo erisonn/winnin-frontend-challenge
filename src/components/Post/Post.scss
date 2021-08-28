@@ -1,31 +1,19 @@
-
-$link-grey: whitesmoke;
-$border-grey: rgba(128, 128, 128, 0.527);
-$hover-grey: rgba(128, 128, 128, 0.144);
-$dracula-blue: #8be9fd;
+@use '../../utils/variables' as colors;
 
 .post {
     display: flex;
     align-items: center;
-    border: 1px solid $border-grey;
+    border: 1px solid colors.$border-grey;
     border-bottom: 0.5px;
     min-height: 100px;
     transition: 0.2s ease-in-out;
     &:hover {
-        background-color: $hover-grey;
+        background-color: colors.$hover-grey;
         cursor: pointer;
     }
 }
 .post-content {
     margin: 10px 10px 10px 0px;
-    span {
-        color: #ff5555;
-        border: 1px solid #ff5555;
-        border-radius: 2px;
-        font-size: 13px;
-        margin-right: 5px;
-        padding: 0px 3px 0px 3px;
-    }
     .pinned {
         display: flex;
         flex-direction: row;
@@ -36,7 +24,7 @@ $dracula-blue: #8be9fd;
         }
         p {
             margin: 0px 0px 0px 5px;
-            color: whitesmoke;
+            color: colors.$black;
             font-size: 13px;
             font-weight: bold;
         }
@@ -57,22 +45,24 @@ $dracula-blue: #8be9fd;
 .post-forum {
     font-size: 13px;
     text-decoration: none;
-    color: $link-grey;
+    color: colors.$black !important;
+    font-weight: bold;
     &:hover {
         text-decoration: underline;
     }
     &:visited {
-        color: $link-grey;
+        color: colors.$link-grey;
     }
 }
 .post-title {
-    color: white;
-    margin: 0px;
+    color: colors.$black;
+    margin: 0px 0px 15px 0px;
     font-size: 18px;
 }
 .post-author {
     margin: 0px;
-    color: whitesmoke;
+    color: colors.$link-grey;
+    font-size: 15px;
     a {
         color: inherit;
         text-decoration: none;
@@ -82,7 +72,8 @@ $dracula-blue: #8be9fd;
     }
 }
 .post-media {
-    color: $dracula-blue;
+    font-size: 15px;
+    color: colors.$lightblue;
     text-decoration: none;
     display: inline-block;
     white-space: nowrap;
@@ -93,7 +84,7 @@ $dracula-blue: #8be9fd;
     top: 4px;
     transition: 0.1s ease-in-out;
     &:hover {
-        color: #5ad6f1
+        color: colors.$hoverblue;
     }
 }
 .active {

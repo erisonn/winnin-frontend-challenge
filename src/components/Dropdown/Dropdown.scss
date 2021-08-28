@@ -1,20 +1,22 @@
+@use '../../utils/variables' as colors;
+
 .dropdown {
     width: 175px;
-    background-color: #44475a;
-    border: 1px solid rgba(128, 128, 128, 0.418);
+    background-color: colors.$white;
+    border: 1px solid colors.$border-grey;
     border-radius: 5px;
     text-align: center;
     padding: 5px 0px 5px 0px;
-    color: whitesmoke;
+    color: #848485;
     cursor: pointer;
     transition: 0.1s ease-in-out;
     &:hover {
-        background-color: rgba(128, 128, 128, 0.144)
+        background-color: colors.$hover-grey;
     }
     .dropdown-content {
         width: inherit;
         background-color: inherit;
-        border: 1px solid rgba(128, 128, 128, 0.418);
+        border: 1px solid colors.$border-grey;
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -22,23 +24,23 @@
         overflow-y: scroll;
         transform: translateY(1%);
         a:nth-child(odd) {
-            background-color: #44475a;
+            background-color: colors.$white;
           }
           
         a:nth-child(even) {
-            background-color: #3b3d4e;
+            background-color: rgb(245, 245, 245);
         }
         a {
-            color: whitesmoke;
+            color: colors.$link-grey;
             padding: 5px 0px 5px 0px;
             text-decoration: none;
             transition: 0.1s ease-in-out;
             &:hover {
-                color: #5ad6f1;
+                color: colors.$lightblue;
             }
         }
     }
     .active {
-        color: #5ad6f1 !important;
+        color:colors.$lightblue !important;
     }
 }

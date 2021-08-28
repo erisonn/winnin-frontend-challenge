@@ -1,4 +1,4 @@
-$border-grey: rgba(128, 128, 128, 0.527);
+@use '../../utils/variables' as colors;
 .banner {
     position: relative;
     top: 80px;
@@ -6,8 +6,8 @@ $border-grey: rgba(128, 128, 128, 0.527);
     max-width: 1000px;
     padding: 15px 0px 15px 0px;
     border-radius: 5px;
-    background-color: #44475a;
-    border: 1px solid $border-grey;
+    background-color: colors.$white;
+    border: 1px solid colors.$border-grey;
     .banner-title {
         display: flex;
         align-items: center;
@@ -15,14 +15,14 @@ $border-grey: rgba(128, 128, 128, 0.527);
         img {
             height: 70px;
             width: 70px;
-            border: 5px solid whitesmoke;
+            border: 5px solid colors.$border-grey;
             border-radius: 50%;
-            background-image: url('./placeholderIcon.png');
-            background-position: center;
-            background-size: 60px;
+            // background-image: url('./placeholderIcon.png');
+            // background-position: center;
+            // background-size: 70px;
         }
         h1{
-            color: whitesmoke;
+            color: colors.$black;
             margin-left: 15px;
             margin: 0 15px;
         }

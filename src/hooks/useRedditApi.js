@@ -30,7 +30,7 @@ const useRedditApi = url => {
         })   
         .catch(error => {
             console.log(error)
-            setError('Error on load.')
+            setError('Our CDN was unable to reach our servers.')
         })
         .finally(() => {
             setIsLoading(false)
@@ -49,7 +49,7 @@ const useRedditApi = url => {
         window.scrollTo(0, 0)
     }, [url]) // eslint-disable-line
 
-    return { isLoading, error, data, after, pagination , fetchRedditPosts, handleLoadMorePosts }
+    return { isLoading, error, data, after, isPaginating , fetchRedditPosts, handleLoadMorePosts }
 }
 
 export default useRedditApi;

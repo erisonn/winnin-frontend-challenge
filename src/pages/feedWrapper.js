@@ -12,8 +12,13 @@ const FeedWrapper = () => {
     const subRedditDetails = sub? `r/${sub}/about` : null
     const { defaultSubs } = useSubredditList(subRedditDetails)
 
-    const memoizedBanner = useMemo(() => <Banner img={defaultSubs.icon_img} title={defaultSubs.title}/>, [defaultSubs.icon_img, defaultSubs.title])
-    const memoizedNav = useMemo(() => <Nav links={sortBy(sub)}/>, [sub])
+    const memoizedBanner = useMemo(() => 
+        <Banner img={defaultSubs.icon_img} title={defaultSubs.title}/>, 
+        [defaultSubs.icon_img, defaultSubs.title])
+
+    const memoizedNav = useMemo(() => 
+        <Nav links={sortBy(sub)}/>, 
+        [sub])
 
     return ( 
         <React.Fragment>

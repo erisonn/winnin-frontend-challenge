@@ -1,36 +1,34 @@
-$link-grey: whitesmoke;
-$border-grey: rgba(128, 128, 128, 0.527);
-$hover-grey: rgba(128, 128, 128, 0.144);
-$dracula-blue: #8be9fd;
+@use '../../utils/variables' as colors;
+
 .nav-bar {
     position: relative;
     top: 80px;
-    background-color: #44475a;
-    padding: 10px 0px 10px 0px;
+    background-color: colors.$white;
+    padding: 20px 0px 20px 0px;
     max-width: 1000px;
     margin: 15px auto;
     border-radius: 5px;
-    border: 1px solid $border-grey;
+    border: 1px solid colors.$border-grey;
 }
 .nav-links {
     text-decoration: none;
-    color: $link-grey;
+    color: colors.$link-grey;
     background-color: transparent;
     font-size: 18px;
     font-weight: bold;
     padding: 7px 15px 7px 15px;
-    margin-right: 5px;
+    margin-left: 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
     &:hover {
-        background-color: $hover-grey;
+        background-color: colors.$hover-grey;
     }
 }
 .link-active {
-    color: $dracula-blue;
-    background-color: rgba(128, 128, 128, 0.062);
+    color: colors.$lightblue;
+    background-color: colors.$active-background;
     pointer-events: none;
 }
 

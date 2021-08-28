@@ -1,5 +1,7 @@
+@use '../../utils/variables' as colors;
+
 .post-list {
-    background-color: #44475a;
+    background-color: colors.$white;
     max-width: 1000px;
     margin: 10px auto 0px auto;
     border-radius: 5px;

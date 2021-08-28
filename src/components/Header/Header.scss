@@ -1,16 +1,13 @@
-$link-grey: whitesmoke;
-$border-grey: rgba(128, 128, 128, 0.527);
-$hover-grey: rgba(128, 128, 128, 0.144);
-$dracula-blue: #8be9fd;
+@use '../../utils/variables' as colors;
 
 header {
     position: fixed;
     top: 0px;
-    background-color: #44475a;
+    background-color: colors.$white;
     width: 100%;
     margin: 0 auto 20px auto;
-    border-bottom: 1px solid $border-grey;
-    height: 50px;
+    border-bottom: 1px solid colors.$border-grey;
+    height: 60px;
     z-index: 1;
     .header-wrapper {
         max-width: 1500px;
@@ -24,11 +21,11 @@ header {
         }
         .my-github {
             text-decoration: none;
-            color: whitesmoke;
+            color: colors.$lightblue;
             transition: 0.1s ease-in-out;
             margin-right: 15px;
             &:hover {
-                color: $dracula-blue;
+                color: colors.$hoverblue;
             }
         }
     }
