@@ -10,7 +10,6 @@ header {
     height: 60px;
     z-index: 1;
     .header-wrapper {
-        max-width: 1500px;
         margin: 0px auto;
         height: inherit;
         display: flex;
@@ -18,25 +17,47 @@ header {
         justify-content: space-between;  
         .header-logo-img {
             height: 40px;
+            margin-left: 15px;
+        }
+        nav {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .default-feeds {
+                color: colors.$link-grey;
+                text-decoration: none;
+                font-weight: bold;
+                &:hover {
+                    color: colors.$lightblue;
+                }
+            }
         }
         .my-github {
             text-decoration: none;
-            color: colors.$lightblue;
+            color: colors.$link-grey;
             transition: 0.1s ease-in-out;
             margin-right: 15px;
+            font-size: 35px;
+            line-height: 25px;
             &:hover {
-                color: colors.$hoverblue;
+                color: colors.$lightblue;
             }
         }
     }
 }
 
 @media only screen and (max-width: 700px) {
-    .header-logo-img {
+    header .header-wrapper .header-logo-img {
         height: 30px;
-        margin-left: 8px;
     }
-    .header-wrapper {
+    header .header-wrapper {
         margin-left: 5px;
+    }
+    header .header-wrapper nav {
+        width: 200px;
+    }
+    .my-github {
+        visibility: hidden;
     }
 }

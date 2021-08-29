@@ -18,7 +18,6 @@ const useSubredditList = sub  => {
 
     useEffect(() => {
         fetchSubs()
-        window.scrollTo(0, 0)
     }, [sub]) // eslint-disable-line
 
 

@@ -2,7 +2,7 @@ import SkeletonLoading from './SkeletonLoading'
 
 const SkeletonPostList = () => {
     return ( 
-        <div>
+        <div className='skeleton-post-list'>
             <SkeletonLoading/>
             <SkeletonLoading/>
             <SkeletonLoading/>

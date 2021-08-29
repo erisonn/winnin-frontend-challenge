@@ -21,10 +21,20 @@
             // background-position: center;
             // background-size: 70px;
         }
-        h1{
-            color: colors.$black;
+        div {
             margin-left: 15px;
-            margin: 0 15px;
+            h1{
+                color: colors.$black;
+                margin: 16px 0px 0px 0px;
+            }
+            span {
+                color: colors.$link-grey;
+            }
+            p {
+                max-width: 300px;
+                text-overflow: clip;
+
+            }
         }
     }
 }

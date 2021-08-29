@@ -12,9 +12,9 @@ const FeedWrapper = () => {
     const subRedditDetails = sub? `r/${sub}/about` : null
     const { defaultSubs } = useSubredditList(subRedditDetails)
 
-    const memoizedBanner = useMemo(() => 
-        <Banner img={defaultSubs.icon_img} title={defaultSubs.title}/>, 
-        [defaultSubs.icon_img, defaultSubs.title])
+    // const memoizedBanner = useMemo(() => 
+    //     <Banner img={defaultSubs.icon_img} title={defaultSubs.title} subTitle={defaultSubs.display_name_prefixed} description={defaultSubs.public_description}/>, 
+    //     [defaultSubs.icon_img, defaultSubs.title, defaultSubs.display_name_prefixed, defaultSubs.public_description])
 
     const memoizedNav = useMemo(() => 
         <Nav links={sortBy(sub)}/>, 
@@ -22,7 +22,7 @@ const FeedWrapper = () => {
 
     return ( 
         <React.Fragment>
-            {sub && memoizedBanner}
+            {/* {sub && memoizedBanner} */}
             {memoizedNav}
             <Feed sub={sub} sort={sort}/>
         </React.Fragment>

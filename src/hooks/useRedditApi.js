@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 const useRedditApi = url => {
 
-    const [isLoading, setIsLoading] = useState(true)
+    const [firstLoading, setFirstLoading] = useState(null)
+    const [isLoading, setIsLoading] = useState(null)
     const [error, setError] = useState(null)
     const [data, setData] = useState([])
     const [after, setAfter] = useState(null)
 
-    const pagination = after ? url + `&after=${after}&count=10` : ''
-
-    const isPaginating = useRef(null)
+    const pagination = after ? url + `&after=${after}&count=100` : ''
 
     const fetchRedditPosts = (url) => {
-        setIsLoading(true)
+        window.scrollTo(0, 0)
+        setFirstLoading(true)
         if(error) {
             setError(null)
         }
@@ -20,36 +20,47 @@ const useRedditApi = url => {
         .then(response => response.json())
         .then(posts => {
             setAfter(posts.data.after)
-            if(!posts.data.before) {
-                isPaginating.current = false
-                setData(posts.data.children)
-            } else {
-                isPaginating.current = true
-                setData([...data, ...posts.data.children])
-            }
+            setData(posts.data.children)
         })   
         .catch(error => {
             console.log(error)
             setError('Our CDN was unable to reach our servers.')
         })
         .finally(() => {
-            setIsLoading(false)
+            setFirstLoading(false)
         })
     }
 
     const handleLoadMorePosts = () => {
-        fetchRedditPosts(pagination)
+        setIsLoading(true)
+        fetch(pagination)
+        .then(response => response.json())
+        .then(posts => {
+            setAfter(posts.data.after)
+            setData([...data, ...posts.data.children])
+        })
+        .catch(error => {
+            console.log(error)
+            setError('Error on loading more posts, please try again.')
+        })
+        .finally(() => {
+            setIsLoading(false)
+        })
     }
 
     useEffect(() => {
-        setIsLoading(true)
         fetchRedditPosts(url)
-        
-        if(isPaginating) return;
-        window.scrollTo(0, 0)
     }, [url]) // eslint-disable-line
 
-    return { isLoading, error, data, after, isPaginating , fetchRedditPosts, handleLoadMorePosts }
+    return { 
+        firstLoading,
+        isLoading, 
+        error, 
+        data, 
+        after,  
+        fetchRedditPosts, 
+        handleLoadMorePosts 
+    }
 }
 
 export default useRedditApi;

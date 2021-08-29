@@ -2,7 +2,9 @@ import './Loading.scss'
 
 const Loading = () => {
     return ( 
-        <p className='loader'>Loading...</p>
+        <div className="lds-ring">
+            <div></div>
+        </div>
     );
 }
  

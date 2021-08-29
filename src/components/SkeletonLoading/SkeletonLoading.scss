@@ -2,6 +2,7 @@
 
 .skeleton {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     position: relative;
     top: 80px;
@@ -12,6 +13,7 @@
     border-radius: 5px;
     border: 1px solid colors.$border-grey;
     .skeleton-img {
+        flex-shrink: 0;
         width: 80px;
         height: 80px;
         margin-right: 10px;
@@ -21,23 +23,28 @@
     }
     .skeleton-content {
         margin: 10px 10px 10px 0px;
+        max-width: 800px;
+        overflow: hidden;
         .skeleton-title {
             display: block;
             margin: 0px;
-            padding: 10px;
-            width: 800px;  
         }
         .skeleton-text {
             display: block;
-            padding: 5px;
-            width: 500px;
+            max-width: 500px;
             margin: 10px 0px 10px 0px;
             border-radius: 5px;
-            animation: skeleton-animation 1s linear infinite alternate;
+            font-size: 10px;
         }
-        span {
-            border-radius: 5px;
+        h1 {
+            font-size: 15px;
+            border-radius: 5px; 
+        }
+        .skeleton-text, h1 {
+            color: transparent;
+            white-space: nowrap;
             animation: skeleton-animation 1s linear infinite alternate;
+            overflow: hidden;
         }
     }
 }
@@ -50,3 +57,13 @@
         background-color: hsl(200, 20%, 95%);
     }
 }
+
+// @media only screen and (max-width: 940px) {
+//     .skeleton-title {
+//         width: 90% !important;
+//     }
+//     .skeleton-text {
+//         width: 200px !important;
+//     }
+
+// }

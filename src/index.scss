@@ -1,3 +1,5 @@
+@use './utils/variables' as colors;
+
 * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -5,17 +7,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
 body, html, #root, .App, .feed {
     background-color: #DAE0E6;
     margin: 0;
 }
-
-$link-grey: whitesmoke;
-$border-grey: rgba(128, 128, 128, 0.527);
-$hover-grey: rgba(128, 128, 128, 0.144);
-$dracula-blue: #8be9fd;
-
 .App {
     padding-bottom: 50px;
 }
@@ -34,22 +29,21 @@ $dracula-blue: #8be9fd;
     max-width: 1000px;
     transform: translateX(-50%);
     text-align: center;
-    border-top: 1px solid rgba(128, 128, 128, 0.527);
-    border: 1px solid rgba(128, 128, 128, 0.527);
+    border-top: 1px solid colors.$border-grey;
+    border: 1px solid colors.$border-grey;
     border-radius: 5px;
     button {
         width: 100%;
         height: 50px !important;
-        color: rgb(131, 131, 131);
-        background-color: transparent;
+        color: colors.$link-grey;
+        background-color: colors.$white;
         font-size: 18px;
         font-weight: bold;
         border: none;
         cursor: pointer;
         transition: 0.2s ease-in-out;
         &:hover {
-            background-color: $hover-grey;
-            color: $dracula-blue;
+            color: colors.$lightblue;
         }
     }
 }

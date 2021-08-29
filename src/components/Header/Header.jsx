@@ -4,6 +4,7 @@ import Logo from './logo.png'
 import useSubredditList from "../../hooks/useSubredditList";
 import { formattedSubs } from "../../utils/helpers";
 import Dropdown from "../Dropdown/Dropdown";
+import { FaGithubSquare } from 'react-icons/fa'
 
 const Header = () => {
 
@@ -12,11 +13,15 @@ const Header = () => {
     return ( 
         <header>
             <div className="header-wrapper">
-                <div className="logo">
+                <div>
                     <NavLink exact to='/' activeClassName='active'><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
-                <Dropdown options={formattedSubs(defaultSubs.children)} menuTitle={'Browse Subreddits'}/>
-                <a href="https://github.com/erisonn/reddit-reactjs" target='_blank' rel='noreferrer' className='my-github'>Github</a>
+                <nav>
+                    <Dropdown options={formattedSubs(defaultSubs.children)} menuTitle={'Browse Subreddits'}/>
+                    <NavLink className='default-feeds' to='/r/popular'>Popular</NavLink>
+                    <NavLink className='default-feeds' to='/r/all'>All</NavLink>
+                </nav>
+                <a href="https://github.com/erisonn/reddit-reactjs" target='_blank' rel='noreferrer' className='my-github'><FaGithubSquare/></a>
             </div>
         </header>
     );

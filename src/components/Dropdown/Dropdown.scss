@@ -10,6 +10,7 @@
     color: #848485;
     cursor: pointer;
     transition: 0.1s ease-in-out;
+    font-weight: bold;
     &:hover {
         background-color: colors.$hover-grey;
     }
@@ -42,5 +43,11 @@
     }
     .active {
         color:colors.$lightblue !important;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .dropdown {
+        width: 120px;
     }
 }
