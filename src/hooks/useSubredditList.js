@@ -2,26 +2,28 @@ import { useEffect, useState } from "react"
 
 const useSubredditList = sub  => {
 
-    const [defaultSubs, setDefaultSubs] = useState([])
+    const [subRedditInfo, setsubRedditInfo] = useState([])
+    const [isLoading, setIsloading] = useState(null)
 
     const fetchSubs = () => {
-        if(!sub) return;
         fetch(`https://www.reddit.com/${sub}/.json?limit=100`)
         .then(response => response.json())
         .then(subReddits => {
-            setDefaultSubs(subReddits.data)
+            setsubRedditInfo(subReddits.data)
+            console.log(sub)
         })
         .catch(error => {
-            console.log(error)
+            console.log(error, 'Teste')
         })
     }
 
     useEffect(() => {
+        if(!sub || sub === 'r/popular/about' || sub === 'r/all/about') return;
         fetchSubs()
     }, [sub]) // eslint-disable-line
 
 
-    return { defaultSubs }
+    return { subRedditInfo }
 }
  
 export default useSubredditList;

@@ -3,6 +3,7 @@
     position: relative;
     top: 80px;
     margin: 0 auto;
+    min-height: 185px;
     max-width: 1000px;
     padding: 15px 0px 15px 0px;
     border-radius: 5px;
@@ -12,14 +13,11 @@
         display: flex;
         align-items: center;
         margin-left: 15px;
-        img {
+        img, svg {
             height: 70px;
             width: 70px;
             border: 5px solid colors.$border-grey;
             border-radius: 50%;
-            // background-image: url('./placeholderIcon.png');
-            // background-position: center;
-            // background-size: 70px;
         }
         div {
             margin-left: 15px;
@@ -40,13 +38,16 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .banner-title  {
-        img {
-            height: 50px !important;
-            width: 50px !important;
-        }
-        h1{
-            font-size: 20px;
+    .banner {
+        min-height: 100px;
+        .banner-title  {
+            img {
+                height: 50px;
+                width: 50px;
+            }
+            h1{
+                font-size: 20px;
+            }
         }
     }
 }

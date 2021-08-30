@@ -8,7 +8,7 @@ import { FaGithubSquare } from 'react-icons/fa'
 
 const Header = () => {
 
-    const { defaultSubs } = useSubredditList('subreddits/default')
+    const { subRedditInfo } = useSubredditList('subreddits/default')
 
     return ( 
         <header>
@@ -17,7 +17,7 @@ const Header = () => {
                     <NavLink exact to='/' activeClassName='active'><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
                 <nav>
-                    <Dropdown options={formattedSubs(defaultSubs.children)} menuTitle={'Browse Subreddits'}/>
+                    <Dropdown options={formattedSubs(subRedditInfo.children)} menuTitle={'Browse Subreddits'}/>
                     <NavLink className='default-feeds' to='/r/popular'>Popular</NavLink>
                     <NavLink className='default-feeds' to='/r/all'>All</NavLink>
                 </nav>

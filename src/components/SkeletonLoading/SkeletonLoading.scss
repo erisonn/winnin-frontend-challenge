@@ -28,6 +28,7 @@
         .skeleton-title {
             display: block;
             margin: 0px;
+            font-size: 12px;
         }
         .skeleton-text {
             display: block;
@@ -57,13 +58,3 @@
         background-color: hsl(200, 20%, 95%);
     }
 }
-
-// @media only screen and (max-width: 940px) {
-//     .skeleton-title {
-//         width: 90% !important;
-//     }
-//     .skeleton-text {
-//         width: 200px !important;
-//     }
-
-// }
