@@ -4,7 +4,7 @@ import Logo from './logo.png'
 import useSubredditList from "../../hooks/useSubredditList";
 import { formattedSubs } from "../../utils/helpers";
 import Dropdown from "../Dropdown/Dropdown";
-import { FaGithubSquare } from 'react-icons/fa'
+import { FaGithubSquare, FaCreativeCommonsSampling, FaArrowCircleUp } from 'react-icons/fa'
 
 const Header = () => {
 
@@ -18,8 +18,8 @@ const Header = () => {
                 </div>
                 <nav>
                     <Dropdown options={formattedSubs(subRedditInfo.children)} menuTitle={'Browse Subreddits'}/>
-                    <NavLink className='default-feeds' to='/r/popular'>Popular</NavLink>
-                    <NavLink className='default-feeds' to='/r/all'>All</NavLink>
+                    <NavLink className='default-feeds' activeClassName='active' to='/r/popular'><FaArrowCircleUp/> Popular</NavLink>
+                    <NavLink className='default-feeds' activeClassName='active' to='/r/all'><FaCreativeCommonsSampling/> All</NavLink>
                 </nav>
                 <a href="https://github.com/erisonn/reddit-reactjs" target='_blank' rel='noreferrer' className='my-github'><FaGithubSquare/></a>
             </div>

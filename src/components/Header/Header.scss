@@ -20,14 +20,20 @@ header {
             margin-left: 15px;
         }
         nav {
-            width: 300px;
+            width: 330px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             .default-feeds {
+                margin-left: 10px;
                 color: colors.$link-grey;
                 text-decoration: none;
                 font-weight: bold;
+                transition: 0.1s ease-in-out;
+                svg {
+                    position: relative;
+                    top: 2px;
+                }
                 &:hover {
                     color: colors.$lightblue;
                 }
@@ -46,6 +52,9 @@ header {
         }
     }
 }
+.active {
+    color:colors.$lightblue !important;
+}
 
 @media only screen and (max-width: 700px) {
     header .header-wrapper .header-logo-img {
@@ -55,7 +64,7 @@ header {
         margin-left: 5px;
     }
     header .header-wrapper nav {
-        width: 200px;
+        width: 220px;
     }
     .my-github {
         visibility: hidden;
