@@ -7,7 +7,7 @@ import Dropdown from "../Dropdown/Dropdown";
 import { FaGithubSquare, FaCreativeCommonsSampling, FaArrowCircleUp } from 'react-icons/fa'
 
 const Header = () => {
-
+    
     const { subRedditInfo } = useSubredditList('subreddits/default')
 
     return ( 

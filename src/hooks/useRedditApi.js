@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const useRedditApi = url => {
 
@@ -10,7 +10,7 @@ const useRedditApi = url => {
 
     const pagination = after ? url + `&after=${after}&count=100` : ''
 
-    const fetchRedditPosts = (url) => {
+    const fetchRedditPosts = useCallback((url) => {
         window.scrollTo(0, 0)
         setFirstLoading(true)
         if(error) {
@@ -29,7 +29,7 @@ const useRedditApi = url => {
         .finally(() => {
             setFirstLoading(false)
         })
-    }
+    }, [error])
 
     const handleLoadMorePosts = () => {
         setIsLoading(true)
@@ -50,7 +50,7 @@ const useRedditApi = url => {
 
     useEffect(() => {
         fetchRedditPosts(url)
-    }, [url]) // eslint-disable-line
+    }, [url, fetchRedditPosts])
 
     return { 
         firstLoading,

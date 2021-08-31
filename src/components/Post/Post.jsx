@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import './Post.scss'
-import pinned from './pinned.svg'
+import { AiTwotonePushpin } from 'react-icons/ai'
 
 const Post = (props) => {
 
@@ -13,7 +13,7 @@ const Post = (props) => {
                 <div>
                     {props.pinned &&
                     <div className="pinned">
-                        <img src={pinned} alt='Pinned'/>
+                        <AiTwotonePushpin/>
                         <p>PINNED</p>
                     </div>
                     }

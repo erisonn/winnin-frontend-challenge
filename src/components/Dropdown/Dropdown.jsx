@@ -12,9 +12,9 @@ const Dropdown = ({ options, menuTitle }) => {
 
     return ( 
         <div className="dropdown">
-            <span className="dropdown-menu" onClick={handleDisplayChange}>{menuTitle}</span>
+            <span className="dropdown-menu" role='button' onClick={handleDisplayChange}>{menuTitle}</span>
             {dropDownDisplay && 
-                <div className='dropdown-content'>
+                <div className='dropdown-content' role='navigation'>
                     {options && options.map(option => <NavLink 
                     activeClassName='active' 
                     key={option.name} 

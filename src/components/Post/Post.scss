@@ -18,9 +18,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        img {
-            height: 15px;
-            filter: invert(100%) sepia(40%) saturate(3446%) hue-rotate(33deg) brightness(100%) contrast(97%);
+        svg {
+            color: #00b400;
         }
         p {
             margin: 0px 0px 0px 5px;

@@ -10,7 +10,7 @@ const Feed = ({ sub, sort }) => {
     
     const subReddit = sub ? `r/${sub}` : ''
     const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=35`
-    const {firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
+    const { firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
 
     if(firstLoading) {
         return <SkeletonPostList/>

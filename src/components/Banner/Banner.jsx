@@ -2,7 +2,7 @@ import './Banner.scss'
 import { FcReddit } from 'react-icons/fc'
 
 const Banner = ( {img, title, subTitle, description} ) => {
-   
+
     return ( 
         <div className='banner'>
             <div className='banner-title'>
