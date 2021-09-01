@@ -49,6 +49,7 @@ const useRedditApi = url => {
     }
 
     useEffect(() => {
+        console.log(url)
         fetchRedditPosts(url)
     }, [url, fetchRedditPosts])
 
