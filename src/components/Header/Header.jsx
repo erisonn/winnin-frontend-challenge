@@ -5,6 +5,7 @@ import useSubredditList from "../../hooks/useSubredditList";
 import { formattedSubs } from "../../utils/helpers";
 import Dropdown from "../Dropdown/Dropdown";
 import { FaGithubSquare, FaCreativeCommonsSampling, FaArrowCircleUp } from 'react-icons/fa'
+import Search from "../Search/Search";
 
 const Header = () => {
     
@@ -17,6 +18,7 @@ const Header = () => {
                     <NavLink exact to='/' activeClassName='active'><img src={Logo} alt="Reddit" className="header-logo-img"/></NavLink>
                 </div>
                 <nav>
+                    <Search/>
                     <Dropdown options={formattedSubs(subRedditInfo.children)} menuTitle={'Browse Subreddits'}/>
                     <NavLink className='default-feeds' activeClassName='active' to='/r/popular'><FaArrowCircleUp/> Popular</NavLink>
                     <NavLink className='default-feeds' activeClassName='active' to='/r/all'><FaCreativeCommonsSampling/> All</NavLink>

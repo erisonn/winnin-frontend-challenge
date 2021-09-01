@@ -1,0 +1,44 @@
+@use '../../utils/variables' as colors;
+
+.search form {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.233);
+    padding: 3px;
+    border-radius: 5px;
+    margin: 0px 15px 0px 15px;
+    .search-input {
+        border: none;
+        margin-right: 5px;
+        max-width: 200px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        transition: 0.1s ease-in-out;
+        color: rgb(63, 63, 63);
+        &:focus {
+            outline: none;
+            border: 1px solid colors.$lightblue;
+            color: rgb(63, 63, 63)
+        }
+    }
+    .search-submit {
+        text-decoration: none;
+        color: colors.$white;
+        font-weight: bold;
+        background-color: colors.$lightblue;
+        padding: 5px 10px 5px 10px;
+        border: none;
+        border-radius: 5px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+        font-size: 12px;
+        &:hover {
+            background-color: colors.$hoverblue;
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .search input {
+        max-width: 70px !important;
+    }
+}

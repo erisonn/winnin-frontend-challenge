@@ -6,10 +6,11 @@ import Error from "../components/Error/Error";
 import SkeletonPostList from "../components/SkeletonLoading/SkeletonPostList";
 import React from "react";
 
-const Feed = ({ sub, sort }) => {
+const Feed = ({ sub, sort, searchQuery }) => {
     
     const subReddit = sub ? `r/${sub}` : ''
-    const url = `https://www.reddit.com/${subReddit}/${sort ? sort : ''}.json?limit=35`
+    const sortPosts = sort ? sort : ''
+    const url = searchQuery? `http://www.reddit.com/search.json?q=${searchQuery}&sort=${sortPosts}` : `https://www.reddit.com/${subReddit}/${sortPosts}.json?limit=35`
     const { firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
 
     if(firstLoading) {

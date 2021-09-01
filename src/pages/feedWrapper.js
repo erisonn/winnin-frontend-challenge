@@ -8,7 +8,7 @@ import useSubredditList from "../hooks/useSubredditList";
 
 const FeedWrapper = () => {
 
-    const { sub, sort } = useParams()
+    const { sub, sort, searchQuery } = useParams()
     const subRedditDetails = sub? `r/${sub}/about` : null
     const { subRedditInfo } = useSubredditList(subRedditDetails)
 
@@ -21,14 +21,19 @@ const FeedWrapper = () => {
         [subRedditInfo.icon_img, subRedditInfo.title, subRedditInfo.display_name_prefixed, subRedditInfo.public_description]) 
 
     const memoizedNav = useMemo(() => 
-        <Nav links={sortBy(sub)}/>, 
-        [sub])
+        <Nav links={sortBy(sub, searchQuery)}/>, 
+        [sub, searchQuery])
 
     return ( 
         <React.Fragment>
             {sub && sub !== 'popular' && sub !== 'all' && memoizedBanner}
+            {searchQuery && 
+            <div className='search-titles'>
+                <h1>{searchQuery}</h1>
+                <p>Search results</p>
+            </div>}
             {memoizedNav}
-            <Feed sub={sub} sort={sort}/>
+            <Feed sub={sub} sort={sort} searchQuery={searchQuery}/>
         </React.Fragment>
     );
 }

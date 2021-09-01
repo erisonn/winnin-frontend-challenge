@@ -20,7 +20,7 @@ header {
             margin-left: 15px;
         }
         nav {
-            width: 330px;
+            width: 630px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -58,10 +58,10 @@ header {
 
 @media only screen and (max-width: 700px) {
     header .header-wrapper .header-logo-img {
-        height: 30px;
+        display: none;
     }
     header .header-wrapper nav {
-        width: 220px;
+        width: 530px;
     }
     .my-github {
         visibility: hidden;

@@ -15,6 +15,15 @@ body, html, #root, .App, .feed {
     padding-bottom: 50px;
 }
 
+.search-titles {
+    position: relative;
+    top: 45px;
+    background-color: colors.$white;
+    h1, p {
+        margin: 15px;
+    }
+}
+
 .feed {
     position: relative;
     top: 55px;

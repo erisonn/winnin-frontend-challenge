@@ -36,7 +36,27 @@ const formattedSubs = (subs) => subs && subs.map(sub => {
     }
 })
 
-const sortBy = (sub) => {
+const sortBy = (sub, searchQuery) => {
+
+    if(searchQuery) {
+        return [
+            {
+            'name': 'Hot', 
+            'icon': <AiOutlineFire/>, 
+            'to': `/search/${searchQuery}/hot/`
+            },
+            {
+            'name': 'New', 
+            'icon': <IoNewspaperOutline/>, 
+            'to': `/search/${searchQuery}/new/`
+            },
+            {
+            'name': 'Top',
+            'icon': <GoGraph/>, 
+            'to': `/search/${searchQuery}/top/`
+            }
+        ]
+    }
 
     if(sub) {
         return [
