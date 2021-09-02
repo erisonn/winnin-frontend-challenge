@@ -36,27 +36,7 @@ const formattedSubs = (subs) => subs && subs.map(sub => {
     }
 })
 
-const sortBy = (sub, searchQuery) => {
-
-    if(searchQuery) {
-        return [
-            {
-            'name': 'Hot', 
-            'icon': <AiOutlineFire/>, 
-            'to': `/search/${searchQuery}/hot/`
-            },
-            {
-            'name': 'New', 
-            'icon': <IoNewspaperOutline/>, 
-            'to': `/search/${searchQuery}/new/`
-            },
-            {
-            'name': 'Top',
-            'icon': <GoGraph/>, 
-            'to': `/search/${searchQuery}/top/`
-            }
-        ]
-    }
+const checkIfSubreddit = (sub) => {
 
     if(sub) {
         return [
@@ -106,5 +86,5 @@ const sortBy = (sub, searchQuery) => {
     ]
 }
 
-export { formattedPosts, formattedSubs, sortBy }
+export { formattedPosts, formattedSubs, checkIfSubreddit }
 export default convertUnix;

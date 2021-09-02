@@ -14,13 +14,14 @@
         align-items: center;
         margin-left: 15px;
         img, svg {
+            flex-shrink: 0;
             height: 70px;
             width: 70px;
             border: 5px solid colors.$border-grey;
             border-radius: 50%;
         }
         div {
-            margin-left: 15px;
+            margin: 0 15px;
             h1{
                 color: colors.$black;
                 margin: 16px 0px 0px 0px;
