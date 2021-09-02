@@ -1,15 +1,9 @@
 import SkeletonLoading from './SkeletonLoading'
 
-const SkeletonPostList = () => {
+const SkeletonPostList = ( {amountOfPosts} ) => {
     return ( 
         <div className='skeleton-post-list'>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
-            <SkeletonLoading/>
+            {Array(amountOfPosts).fill(<SkeletonLoading/>)}
         </div>
     );
 }

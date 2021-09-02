@@ -13,7 +13,7 @@ const Feed = ({ sub, sort, searchQuery }) => {
     const { firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
 
     if(firstLoading) {
-        return <SkeletonPostList/>
+        return <SkeletonPostList amountOfPosts={7}/>
     }
 
     if(error) {
@@ -27,8 +27,7 @@ const Feed = ({ sub, sort, searchQuery }) => {
             {after && 
             <div className='load-more'>
                 <button onClick={handleLoadMorePosts}>Load More.</button>
-            </div>
-            }
+            </div>}
         </div>
     );
 }
