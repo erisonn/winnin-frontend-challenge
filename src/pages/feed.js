@@ -9,7 +9,7 @@ const Feed = ({ sub, sort, searchQuery }) => {
     
     const subReddit = sub ? `/r/${sub}` : ''
     const sortPosts = sort ? sort : ''
-    const url = searchQuery? `http://www.reddit.com/search/.json${searchQuery}` : `https://www.reddit.com${subReddit}/${sortPosts}.json?limit=35`
+    const url = searchQuery? `https://www.reddit.com/search/.json${searchQuery}` : `https://www.reddit.com${subReddit}/${sortPosts}.json?limit=35`
     const { firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
 
     if(firstLoading) {

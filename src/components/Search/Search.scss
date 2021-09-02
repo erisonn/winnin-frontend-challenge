@@ -38,7 +38,10 @@
 }
 
 @media only screen and (max-width: 720px) {
-    .search input {
-        max-width: 70px !important;
+    .search form {
+        margin: 0 5px;
+        .search-input {
+            max-width: 70px   ; 
+        }
     }
 }
