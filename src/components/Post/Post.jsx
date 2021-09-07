@@ -4,19 +4,20 @@ import { AiTwotonePushpin } from 'react-icons/ai'
 
 const Post = (props) => {
 
+    const pinnedIcon = props.pinned && 
+        <div className="pinned">
+            <AiTwotonePushpin/>
+            <p>PINNED</p>
+        </div>
+
     return ( 
-        <div className="post">
+        <div className="post" data-testid='post-item'>
             <div className='post-img'>
                 <img src={props.thumbnail} alt=""/>
             </div>
             <div className='post-content'>
                 <div>
-                    {props.pinned &&
-                    <div className="pinned">
-                        <AiTwotonePushpin/>
-                        <p>PINNED</p>
-                    </div>
-                    }
+                    {pinnedIcon}
                     <NavLink to={props.forum} className='post-forum' activeClassName='active'>{props.forum}</NavLink>
                 </div>
                 <h1 className='post-title'>{props.title}</h1>

@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { checkIfSubreddit } from "../utils/helpers";
+import { checkIfSubreddit, formattedSubredditInfo } from "../utils/helpers";
 import Banner from "../components/Banner/Banner";
 import Nav from "../components/Nav/Nav";
 import Feed from "./feed";
@@ -10,7 +10,7 @@ import queryString from 'query-string'
 const FeedWrapper = () => {
 
     const { sub, sort } = useParams()
-    const subRedditDetails = sub? `r/${sub}/about` : null
+    const subRedditDetails = sub && `r/${sub}/about`
     const { subRedditInfo } = useSubredditList(subRedditDetails)
 
     //query de busca
@@ -18,16 +18,17 @@ const FeedWrapper = () => {
     const { q } = queryString.parse(search)
 
     const memoizedBanner = useMemo(() => 
-        <Banner 
-        img={subRedditInfo.icon_img} 
-        title={subRedditInfo.title} 
-        subTitle={subRedditInfo.display_name_prefixed} 
-        description={subRedditInfo.public_description}/>,
-        [subRedditInfo.icon_img, subRedditInfo.title, subRedditInfo.display_name_prefixed, subRedditInfo.public_description]) 
+        <Banner data={formattedSubredditInfo(subRedditInfo)}/>,
+        [subRedditInfo]) 
 
     const memoizedNav = useMemo(() => 
         <Nav links={checkIfSubreddit(sub, search)}/>, 
         [sub, search])
+
+    useEffect(() => {
+        if(sub) document.title = subRedditInfo.title
+        else document.title = 'reddit: the front page of the internet'
+    })
 
     return ( 
         <React.Fragment>

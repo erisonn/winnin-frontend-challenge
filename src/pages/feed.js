@@ -1,5 +1,5 @@
 import useRedditApi from "../hooks/useRedditApi";
-import { formattedPosts } from "../utils/helpers";
+import { formattedPosts, checkRedditUrl } from "../utils/helpers";
 import PostList from "../components/PostList/PostList";
 import Loading from "../components/Loading/Loading";
 import Error from "../components/Error/Error";
@@ -9,7 +9,7 @@ const Feed = ({ sub, sort, searchQuery }) => {
     
     const subReddit = sub ? `/r/${sub}` : ''
     const sortPosts = sort ? sort : ''
-    const url = searchQuery? `https://www.reddit.com/search/.json${searchQuery}` : `https://www.reddit.com${subReddit}/${sortPosts}.json?limit=35`
+    const url = checkRedditUrl(searchQuery, subReddit, sortPosts)
     const { firstLoading, isLoading, error, data, after, fetchRedditPosts, handleLoadMorePosts } = useRedditApi(url) // Custom hook
 
     if(firstLoading) {
@@ -21,7 +21,7 @@ const Feed = ({ sub, sort, searchQuery }) => {
     }
 
     return (
-        <div className='feed'>
+        <div className='feed' data-testid='feed'>
             {isLoading && <Loading />}
             <PostList posts={formattedPosts(data)}/>
             {after && 

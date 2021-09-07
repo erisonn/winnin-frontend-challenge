@@ -3,7 +3,7 @@ import './PostList.scss'
 
 const PostList = ( { posts }) => {
     return ( 
-        <div className="post-list">
+        <div className="post-list" data-testid='post-list'>
             {posts && posts.map(post => 
             <Post 
                 title={post.title} 
