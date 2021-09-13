@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { checkIfSubreddit, formattedSubredditInfo } from "../utils/helpers";
 import Banner from "../components/Banner/Banner";
@@ -25,11 +25,6 @@ const FeedWrapper = () => {
         <Nav links={checkIfSubreddit(sub, search)}/>, 
         [sub, search])
 
-    useEffect(() => {
-        if(sub) document.title = subRedditInfo.title
-        else document.title = 'reddit: the front page of the internet'
-    })
-
     return ( 
         <React.Fragment>
             {sub && sub !== 'popular' && sub !== 'all' && memoizedBanner}
@@ -39,7 +34,7 @@ const FeedWrapper = () => {
                 <p>Search results</p>
             </div>}
             {search || memoizedNav}
-            <Feed sub={sub} sort={sort} searchQuery={search}/>
+            <Feed sub={sub} sort={sort} searchQuery={search} subTitle={subRedditInfo.title}/>
         </React.Fragment>
     );
 }

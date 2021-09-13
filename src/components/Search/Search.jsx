@@ -14,9 +14,7 @@ const Search = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        if(searchQuery || searchQuery !== '') {
-            history.push(`/search/?q=${searchQuery}`)
-        }
+        if(searchQuery !== '') history.push(`/search/?q=${searchQuery}`)
     }
 
     return ( 
