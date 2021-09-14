@@ -3,7 +3,7 @@ import { FcReddit } from 'react-icons/fc'
 
 const Banner = ({ data }) => {
 
-    const bannerImg = data.img ? <img src={data.img} alt=''/> : <FcReddit/>
+    const bannerImg = data.img ? <img src={data.img} alt=''/> : <FcReddit data-testid='placeholder-icon'/>
 
     return ( 
         <div className='banner'>

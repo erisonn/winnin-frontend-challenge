@@ -8,7 +8,6 @@ logs
 **/*.backup.*
 **/*.back.*
 
-__tests__
 node_modules
 bower_components
 

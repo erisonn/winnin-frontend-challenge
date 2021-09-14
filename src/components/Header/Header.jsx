@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import './Header.scss'
-import Logo from './logo.png'
+import Logo from '../../static/logo.png'
 import useSubredditList from "../../hooks/useSubredditList";
 import { formattedSubs } from "../../utils/helpers";
 import Dropdown from "../Dropdown/Dropdown";
