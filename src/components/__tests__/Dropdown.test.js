@@ -29,7 +29,9 @@ test('Should render Dropdown options when clicked, should unmount Dropdown optio
     expect(screen.queryByText('option02')).not.toBeInTheDocument();
     fireEvent.click(dropDown);
     expect(screen.getByText('option01')).toBeInTheDocument();
+    expect(screen.getByText('option01')).toHaveAttribute('href', '/option01')
     expect(screen.getByText('option02')).toBeInTheDocument();
+    expect(screen.getByText('option02')).toHaveAttribute('href', '/option02')
     fireEvent.click(dropDown);
     expect(screen.queryByText('option01')).not.toBeInTheDocument();
     expect(screen.queryByText('option02')).not.toBeInTheDocument();
