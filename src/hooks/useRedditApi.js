@@ -13,9 +13,6 @@ const useRedditApi = url => {
     const fetchRedditPosts = useCallback((url) => {
         window.scrollTo(0, 0)
         setFirstLoading(true)
-        if(error) {
-            setError(null)
-        }
         fetch(url)
         .then(response => response.json())
         .then(posts => {
@@ -29,7 +26,7 @@ const useRedditApi = url => {
         .finally(() => {
             setFirstLoading(false)
         })
-    }, [error])
+    }, [])
 
     const handleLoadMorePosts = () => {
         setIsLoading(true)
@@ -49,6 +46,7 @@ const useRedditApi = url => {
     }
 
     useEffect(() => {
+        setError(null)
         fetchRedditPosts(url)
     }, [url, fetchRedditPosts])
 

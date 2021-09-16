@@ -25,11 +25,11 @@ const Feed = ({ sub, subTitle, sort, searchQuery }) => {
     }
 
     if(error) {
-        return <Error errorMessage={error} handleError={() => fetchRedditPosts(url)}/>
+        return <Error errorMessage={error} handleError={() => fetchRedditPosts(url)} buttonText={'Try again'}/>
     }
 
     return (
-        <div className='feed' data-testid='feed'>
+        <div className='feed' data-testid='feed' role='feed'>
             {isLoading && <Loading />}
             <PostList posts={formattedPosts(data)}/>
             {after && 

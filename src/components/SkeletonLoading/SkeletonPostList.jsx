@@ -5,7 +5,7 @@ const SkeletonPostList = ( {amountOfPosts} ) => {
     const skeletonPosts = Array(amountOfPosts).fill(0)
 
     return ( 
-        <div className='skeleton-post-list' data-testid="skeleton-post-list">
+        <div className='skeleton-post-list' role='status'>
             {skeletonPosts.map((_, i) => <SkeletonLoading key={i}/>)}
         </div>
     );
