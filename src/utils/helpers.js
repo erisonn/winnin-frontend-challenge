@@ -26,11 +26,7 @@ const formattedPosts = (data) => data.map(post => {
     return {
         'title': post.data.title,
         'mediaurl': post.data.url,
-        'thumbnail': 
-            post.data.thumbnail !== 'self' &&
-            post.data.thumbnail !== 'default' &&
-            post.data.thumbnail !== '' &&
-            post.data.thumbnail !== 'nsfw' ? post.data.thumbnail : defaultThumbnail,
+        'thumbnail': post.data.thumbnail.includes('https://') ? post.data.thumbnail : defaultThumbnail,
         'author': post.data.author,
         'forum': `/${post.data.subreddit_name_prefixed}`,
         'date': convertUnix(post.data.created_utc),
