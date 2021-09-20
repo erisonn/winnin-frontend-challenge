@@ -8,9 +8,19 @@ import { IoNewspaperOutline } from 'react-icons/io5'
 
 //Verifica se temos um termo de busca, caso tenha retorna  url da API de busca do reddit, caso contrário irá retornar a API padrão do reddit.
 
-const checkRedditUrl = (searchQuery, subReddit, sortPosts) => {
+const checkRedditUrl = (searchQuery, sub, sort) => {
+    const subReddit = sub ? `/r/${sub}` : ''
+    const sortPosts = sort ? sort : ''
     if(searchQuery) return `https://www.reddit.com/search/.json${searchQuery}`;
     return `https://www.reddit.com${subReddit}/${sortPosts}.json?limit=35`;
+}
+
+const setDocumentTitle = (sub, firstLoading, subTitle) => {
+    document.title = 'reddit: the front page of the internet'
+    if(!sub) return
+    if(!firstLoading) document.title = subTitle
+    if(sub === 'popular') document.title = 'r/popular'
+    if(sub === 'all') document.title = 'r/all'
 }
 
 //a data de criação dos posts da API são em UNIX. essa função passa a data para algo legível.
@@ -108,7 +118,8 @@ const formattedSubredditInfo = (subRedditInfo) => {
 }
 
 export { 
-    checkRedditUrl, 
+    checkRedditUrl,
+    setDocumentTitle, 
     formattedPosts, 
     formattedSubs, 
     checkIfSubreddit, 

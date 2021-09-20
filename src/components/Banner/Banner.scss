@@ -9,6 +9,7 @@
     border-radius: 5px;
     background-color: colors.$white;
     border: 1px solid colors.$border-grey;
+    display: flex;
     .banner-title {
         display: flex;
         align-items: center;

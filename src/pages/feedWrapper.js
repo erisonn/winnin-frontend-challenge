@@ -17,9 +17,10 @@ const FeedWrapper = () => {
     const { search = null } = useLocation()
     const { q } = queryString.parse(search)
 
-    const memoizedBanner = useMemo(() => 
+    const memoizedBanner = useMemo(() =>
+        sub && sub !== 'popular' && sub !== 'all' &&
         <Banner data={formattedSubredditInfo(subRedditInfo)}/>,
-        [subRedditInfo]) 
+        [subRedditInfo, sub]) 
 
     const memoizedNav = useMemo(() => 
         <Nav links={checkIfSubreddit(sub, search)}/>, 
@@ -27,7 +28,7 @@ const FeedWrapper = () => {
 
     return ( 
         <React.Fragment>
-            {sub && sub !== 'popular' && sub !== 'all' && memoizedBanner}
+            {memoizedBanner}
             {search && 
             <div className='search-titles'>
                 <h1>{q}</h1>
